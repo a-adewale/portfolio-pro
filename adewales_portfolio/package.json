@@ -1,0 +1,12 @@
+{
+  "name": "adewales-portfolio",
+  "version": "17.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "spotify:auth": "node --env-file=.env.local scripts/get-spotify-refresh-token.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

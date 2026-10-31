@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adewale ADEOGUN | Automation Engineer Portfolio</title>
+    <meta name="description" content="Portfolio for a multidisciplinary Software Engineer, RPA Developer, and Data Scientist specializing in automation, web engineering, and hardware-to-software integration.">
+    <link rel="icon" type="image/svg+xml" href="images/dev-favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="build-progress" aria-label="Portfolio build progress">
+        <span class="build-progress-label">Portfolio build progress</span>
+        <div class="build-progress-track"><span class="build-progress-bar" id="buildProgressBar"></span></div>
+        <strong id="buildProgressText">0%</strong>
+    </div>
+
+    <a href="#intro" class="mobile-brand"><span>Adewale</span><strong>ADEOGUN</strong></a>
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-inner matrix-welcome">
+            <div class="matrix-terminal" id="matrixTerminal">
+                <p class="matrix-line only-line"><span id="matrixLineOne"></span><span class="typing-caret matrix-caret"></span></p>
+
+                <div class="build-lab-stage" id="buildLabStage">
+                    <span class="welcome-kicker">Portfolio boot sequence</span>
+                    <h1><span id="matrixFinal"></span><span class="typing-caret"></span></h1>
+                    <p class="welcome-roll">learn → test → break → fix → repeat</p>
+                    <button class="enter-site" id="enterSite" type="button">Enter portfolio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grain"></div>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <div class="top-right-controls">
+        <button class="theme-toggle-card" id="themeToggle" type="button" aria-label="Toggle white mode">
+            <span class="theme-toggle-label">White Mode</span>
+            <span class="theme-toggle-pill">
+                <span class="theme-toggle-knob">☀</span>
+                <span class="theme-toggle-moon">◐</span>
+            </span>
+        </button>
+
+        <div class="language-selector notranslate" id="languageSelector" translate="no">
+            <button class="language-trigger" id="languageTrigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span class="language-icon" aria-hidden="true">
+                    <img class="language-icon-dark" src="images/language-dark.png" alt="">
+                    <img class="language-icon-light" src="images/language-light.png" alt="">
+                </span>
+                <span class="language-current" id="languageCurrent">English</span>
+                <img class="language-chevron" src="images/down-chevron.png" alt="" aria-hidden="true">
+            </button>
+            <div class="language-menu" id="languageMenu" role="listbox" aria-label="Choose site language">
+                <button type="button" role="option" data-language="en" data-label="English" aria-selected="true"><span>EN</span>English</button>
+                <button type="button" role="option" data-language="fr" data-label="Français" aria-selected="false"><span>FR</span>Français</button>
+                <button type="button" role="option" data-language="ha" data-label="Hausa" aria-selected="false"><span>HA</span>Hausa</button>
+                <button type="button" role="option" data-language="ig" data-label="Igbo" aria-selected="false"><span>IG</span>Igbo</button>
+                <button type="button" role="option" data-language="yo" data-label="Yorùbá" aria-selected="false"><span>YO</span>Yorùbá</button>
+            </div>
+        </div>
+        <div id="google_translate_element" aria-hidden="true"></div>
+    </div>
+
+    <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="identity-block">
+            <a href="#intro" class="logo-mark" aria-label="Go to intro">
+                <span class="dev-emoji">👨🏾‍💻</span>
+            </a>
+            <p class="availability"><span data-i18n="available">Available for automation, engineering, and product builds</span></p>
+            <h1>Adewale ADEOGUN</h1>
+            <h2><span data-i18n="role">Software Engineer · RPA Developer · Data Scientist</span></h2>
+            <p>
+                <span data-i18n="introSidebar">I build resilient automation systems, production-grade workflows, responsive interfaces, and code-first tools that turn fragile manual processes into reliable engineered products.</span>
+            </p>
+        </div>
+
+        <nav class="side-nav" aria-label="Portfolio sections">
+            <a href="#intro" class="active"><span class="nav-line"></span><span class="nav-label">Intro</span></a>
+            <a href="#play"><span class="nav-line"></span><span class="nav-label">Play</span></a>
+            <a href="#applications"><span class="nav-line"></span><span class="nav-label" data-i18n="applications">Applications</span></a>
+            <a href="#about"><span class="nav-line"></span><span class="nav-label">About</span></a>
+            <a href="#experience"><span class="nav-line"></span><span class="nav-label">Experience</span></a>
+            <a href="#projects"><span class="nav-line"></span><span class="nav-label">Projects</span></a>
+            <a href="#skills"><span class="nav-line"></span><span class="nav-label">Stack</span></a>
+            <a href="#contact"><span class="nav-line"></span><span class="nav-label">Contact</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a class="social-icon orbit-icon" href="mailto:adewaleeadeogun@gmail.com" aria-label="Email">
+                <svg class="social-svg social-mail" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3.5 6.5h17v11h-17v-11Z"></path>
+                    <path d="M4 7l8 6 8-6"></path>
+                </svg>
+            </a>
+            <a class="social-icon orbit-icon" href="https://github.com/a-adewale" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg class="social-svg social-fill" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 .8A11.2 11.2 0 0 0 .8 12.3c0 5 3.2 9.2 7.7 10.7.6.1.8-.3.8-.6v-2.1c-3.1.7-3.8-1.4-3.8-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.8 1.2 1.8 1.2 1 .1.7 2.8 3 2 .1-.8.4-1.3.7-1.6-2.5-.3-5.1-1.3-5.1-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.2 5.9 18.2 6.2 18.2 6.2c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.6 5.4-5.1 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6a11.4 11.4 0 0 0 7.6-10.8A11.2 11.2 0 0 0 12 .8Z"></path>
+                </svg>
+            </a>
+            <a class="social-icon orbit-icon" href="https://www.linkedin.com/in/adeogun-adewale/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg class="social-svg social-fill" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.5 8.2h4.1V24H.5V8.2Zm7.2 0h3.9v2.2h.1c.5-1 1.9-2.6 4.1-2.6 4.4 0 5.2 2.9 5.2 6.7V24h-4.1v-8.4c0-2 0-4.6-2.8-4.6s-3.2 2.2-3.2 4.4V24H7.7V8.2Z"></path>
+                </svg>
+            </a>
+        </div>
+    </aside>
+
+    <main class="page-shell">
+        <section class="hero-section section" id="intro">
+            <p class="eyebrow"><span data-i18n="heroEyebrow">Automation engineer who likes building things</span></p>
+            <h2>
+                <span data-i18n="heroTitle">I engineer automation, data, and web systems that stay reliable when real workflows get messy.</span>
+            </h2>
+            <p class="lead">
+                <span data-i18n="heroLead">A multidisciplinary Software Engineer, RPA Developer, and Data Scientist building resilient automation logic, responsive interfaces, back-end workflows, and hardware-to-software systems.</span>
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="primary-action"><span data-i18n="viewBuilds">View selected builds</span></a>
+                <a href="#contact" class="ghost-action"><span data-i18n="sayHello">Say hello</span></a>
+            </div>
+
+            <div class="metric-strip">
+                <article class="metric-card tilt-card">
+                    <strong class="counter" data-target="4" data-suffix="+">0</strong>
+                    <span>Years intelligent automation</span>
+                </article>
+                <article class="metric-card tilt-card">
+                    <strong class="counter" data-target="3" data-suffix="+">0</strong>
+                    <span>Years healthcare automation</span>
+                </article>
+                <article class="metric-card tilt-card">
+                    <strong class="counter" data-target="25" data-suffix="+">0</strong>
+                    <span>Pages extracted and restructured in a large-scale web parsing project</span>
+                </article>
+                <article class="metric-card tilt-card">
+                    <strong class="counter" data-target="1000" data-suffix="+">0</strong>
+                    <span>Daily changes handled in AI/RPA scheduling workflows</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="play-section section" id="play">
+            <div class="section-heading">
+                <p class="eyebrow">Play console</p>
+                <h2>A live corner of the portfolio.</h2>
+                <p>Listening activity, build status, and controls for shaping how the portfolio feels while you explore it.</p>
+                <p class="console-instruction">Click to interact.</p>
+            </div>
+
+            <div class="console-grid">
+                <article class="console-card console-intro">
+                    <span class="console-label"><span class="status-dot"></span> Status</span>
+                    <div>
+                        <p class="console-overline" id="wakatimeStatus">Checking WakaTime...</p>
+                        <h3 id="wakatimeHeading">See what I am working on</h3>
+                        <p class="wakatime-detail" id="wakatimeDetail">Live development activity will appear here.</p>
+                    </div>
+                    <a id="wakatimeLink" href="https://wakatime.com" target="_blank" rel="noopener noreferrer">View coding activity <span class="share-icon" aria-hidden="true"></span></a>
+                </article>
+
+                <article class="spotify-card console-spotify console-spotify-compact" id="spotifyCard" aria-labelledby="spotifyHeading" aria-live="polite">
+                    <span class="console-label">Currently listening</span>
+                    <div class="spotify-main">
+                        <div class="spotify-artwork-wrap">
+                            <img class="spotify-artwork" id="spotifyArtwork" alt="" hidden>
+                            <div class="spotify-artwork-placeholder" id="spotifyArtworkPlaceholder" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" role="img"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.58 14.42a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.51-.59 11.66 1.34.35.21.46.67.25 1.03Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.55-11.97-1.39a.94.94 0 1 1-.55-1.79c4.37-1.33 9.8-.69 13.5 1.58.44.27.58.85.31 1.29Zm.13-3.4C14.31 7.45 7.93 7.24 4.24 8.36a1.12 1.12 0 1 1-.65-2.14c4.24-1.29 11.29-1.04 15.74 1.6a1.12 1.12 0 0 1-1.15 1.93Z"/></svg>
+                            </div>
+                        </div>
+                        <div class="spotify-copy">
+                            <div class="spotify-status-row">
+                                <span class="spotify-pulse" id="spotifyPulse" aria-hidden="true"></span>
+                                <span id="spotifyStatus">Checking Spotify...</span>
+                                <span class="spotify-equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                            </div>
+                            <h3 id="spotifyHeading">Connecting to Spotify</h3>
+                            <p id="spotifyArtist">Music from my listening history will appear here.</p>
+                        </div>
+                    </div>
+                    <a class="spotify-link" id="spotifyLink" href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" hidden>Open in Spotify <span class="share-icon" aria-hidden="true"></span></a>
+                </article>
+
+                <button class="play-card console-control tilt-card" id="typefaceCard" type="button">
+                    <span class="console-label">Display / 01</span>
+                    <div class="typeface-preview"><span class="type-big">Aa</span><small id="typefaceCurrent">Default · 1/3</small></div>
+                    <h3>Typeface</h3>
+                    <p>Cycle through three carefully matched reading styles.</p>
+                    <span class="play-action" aria-hidden="true"></span>
+                </button>
+
+                <button class="play-card console-control console-palette active tilt-card" id="paletteCard" type="button">
+                    <span class="console-label">Display / 02</span>
+                    <div class="palette-row">
+                        <span class="swatch coral"></span>
+                        <span class="swatch mint"></span>
+                        <span class="swatch ink"></span>
+                        <span class="swatch paper"></span>
+                    </div>
+                    <h3>Palette</h3>
+                    <p>Switch between red, green, blue, and gold accent modes.</p>
+                    <span class="play-action" aria-hidden="true"></span>
+                </button>
+
+                <button class="play-card console-control tilt-card" id="vibeCard" type="button">
+                    <span class="console-label">Motion / 03</span>
+                    <div class="vibe-bars"><span></span><span></span><span></span><span></span><span></span></div>
+                    <h3>Vibes</h3>
+                    <p>Turn on a subtle moving background for a more alive page.</p>
+                    <span class="play-action" aria-hidden="true"></span>
+                </button>
+
+                <button class="play-card console-control tilt-card" id="focusCard" type="button">
+                    <span class="console-label">Reading / 04</span>
+                    <div class="map-line"></div>
+                    <h3>Focus Mode</h3>
+                    <p>Dim decorative noise and focus on readable content.</p>
+                    <span class="play-action" aria-hidden="true"></span>
+                </button>
+
+                <button class="play-card console-control tilt-card" id="contrastCard" type="button">
+                    <span class="console-label">Display / 05</span>
+                    <div class="contrast-preview" aria-hidden="true"><span></span></div>
+                    <h3>Contrast</h3>
+                    <p>Boost text and borders for a sharper reading experience.</p>
+                    <span class="play-action" aria-hidden="true"></span>
+                </button>
+
+            </div>
+        </section>
+
+
+        <section class="apps-section section" id="applications">
+            <div class="section-heading compact">
+                <p class="eyebrow"><span data-i18n="applications">Applications</span></p>
+                <h2><span data-i18n="appsTitle">Tools I move between when building systems.</span></h2>
+                <p><span data-i18n="appsText">A focused toolkit across automation, web, data, and back-end engineering — the stack I use to turn ideas into production-ready systems.</span></p>
+            </div>
+
+            <div class="app-marquee">
+                <div class="app-track">
+                    <span><img src="images/uipath.svg" alt="">UiPath</span>
+                    <span><img src="images/python.svg" alt="">Python</span>
+                    <span><img src="images/js.svg" alt="">JavaScript</span>
+                    <span><img src="images/dotnet.svg" alt="">.NET</span>
+                    <span><img src="images/fastapi.svg" alt="">FastAPI</span>
+                    <span><img src="images/sql.svg" alt="">SQL</span>
+                    <span><img src="images/powerbi.svg" alt="">Power BI</span>
+                    <span><img src="images/ue5.svg" alt="">UE5</span>
+                    <span><img src="images/uipath.svg" alt="">UiPath</span>
+                    <span><img src="images/python.svg" alt="">Python</span>
+                    <span><img src="images/js.svg" alt="">JavaScript</span>
+                    <span><img src="images/dotnet.svg" alt="">.NET</span>
+                    <span><img src="images/fastapi.svg" alt="">FastAPI</span>
+                    <span><img src="images/sql.svg" alt="">SQL</span>
+                    <span><img src="images/powerbi.svg" alt="">Power BI</span>
+                    <span><img src="images/ue5.svg" alt="">UE5</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section section" id="about">
+            <div class="section-heading compact professional-heading">
+                <p class="eyebrow">About / Engineering philosophy</p>
+                <h2>I work across the stack, but reliability is the thread through everything.</h2>
+            </div>
+            <div class="about-showcase">
+                <article class="about-statement">
+                    <span class="about-mark" aria-hidden="true">A<span>/</span>A</span>
+                    <p>I am an automation engineer at the core, building across front-end interfaces, Python tooling, back-end services, data pipelines, RPA frameworks, and hardware logic.</p>
+                    <div class="about-disciplines" aria-label="Engineering disciplines">
+                        <span>Automation</span><span>Web</span><span>Data</span><span>Systems</span>
+                    </div>
+                </article>
+                <div class="principle-grid">
+                    <article><span>01</span><h3>Learn the system</h3><p>Understand the workflow, dependencies, and failure points before deciding what to automate.</p></article>
+                    <article><span>02</span><h3>Test the edges</h3><p>Design for messy production data, unstable interfaces, and the exceptions happy paths miss.</p></article>
+                    <article><span>03</span><h3>Engineer the recovery</h3><p>Build observable systems with validation gates, useful errors, and clear routes back to safety.</p></article>
+                    <article><span>04</span><h3>Improve the loop</h3><p>Learn, test, break, fix, and repeat until the workflow becomes dependable.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section section" id="experience">
+            <div class="section-heading compact professional-heading">
+                <p class="eyebrow">Experience / Production practice</p>
+                <h2>Built for the realities of production.</h2>
+            </div>
+
+            <div class="experience-ledger">
+                <article class="timeline-item experience-card tilt-card">
+                    <div class="experience-rail"><strong>01</strong><span></span></div>
+                    <div class="experience-body">
+                    <div class="experience-topline"><div class="timeline-meta">Enterprise automation</div><div class="experience-logos" aria-label="Tools"><img src="images/uipath.svg" alt="UiPath"><img src="images/dotnet.svg" alt=".NET"><img src="images/sql.svg" alt="SQL"></div></div>
+                    <h3>Senior AI & RPA Engineering</h3>
+                    <p>
+                        Built unattended production automations using UiPath, Orchestrator queues, assets, triggers, credentials, selectors, APIs, Excel, email, databases, and reusable frameworks.
+                    </p>
+                    <div class="tag-row">
+                        <span>UiPath</span><span>Orchestrator</span><span>REFramework</span><span>VB.NET</span>
+                    </div>
+                    </div>
+                </article>
+
+                <article class="timeline-item experience-card tilt-card">
+                    <div class="experience-rail"><strong>02</strong><span></span></div>
+                    <div class="experience-body">
+                    <div class="experience-topline"><div class="timeline-meta">Healthcare RCM</div><div class="experience-logos" aria-label="Tools"><img src="images/uipath.svg" alt="UiPath"><img src="images/database.svg" alt="Data systems"><img src="images/gear.svg" alt="Automation"></div></div>
+                    <h3>Production eBilling and EVV automation</h3>
+                    <p>
+                        Engineered automation logic for live healthcare revenue-cycle workflows, including claims processing, rolling date windows, selector stability, and zero-fail validation gates.
+                    </p>
+                    <div class="tag-row">
+                        <span>HHAeXchange</span><span>RCM</span><span>Selectors</span><span>Date logic</span>
+                    </div>
+                    </div>
+                </article>
+
+                <article class="timeline-item experience-card tilt-card">
+                    <div class="experience-rail"><strong>03</strong><span></span></div>
+                    <div class="experience-body">
+                    <div class="experience-topline"><div class="timeline-meta">API-first engineering</div><div class="experience-logos" aria-label="Tools"><img src="images/dotnet.svg" alt=".NET"><img src="images/python.svg" alt="Python"><img src="images/js.svg" alt="JavaScript"></div></div>
+                    <h3>Network-layer automation and web-call replication</h3>
+                    <p>
+                        Replaced slow UI selector flows with code-first request logic that mimics browser network calls while preserving cookies, hidden fields, sessions, and server validation paths.
+                    </p>
+                    <div class="tag-row">
+                        <span>HTTP</span><span>Cookies</span><span>.NET</span><span>AI-assisted development</span>
+                    </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="projects-section section" id="projects">
+            <div class="section-heading compact">
+                <p class="eyebrow">Selected work / Case-file index</p>
+                <h2>Systems built where software, automation, data, and physical engineering meet.</h2>
+                <p>Filter the archive, then open any case file for the engineering context behind it.</p>
+            </div>
+
+            <div class="project-filter">
+                <button class="active" data-filter="all" type="button">All</button>
+                <button data-filter="automation" type="button">Automation</button>
+                <button data-filter="web" type="button">Web</button>
+                <button data-filter="data" type="button">Data</button>
+                <button data-filter="hardware" type="button">Hardware</button>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card tilt-card" data-category="web data">
+                    <div class="project-card-top"><span class="project-number">01 / PLATFORM</span><div class="project-icon"><img src="images/code.svg" alt=""></div></div>
+                    <h3>Front-End & Full-Stack Educational Coding Platform</h3>
+                    <p>
+                        Conceptualized a gamified platform for teaching programming concepts with responsive UI, FastAPI routes, SQLite schema planning, and student progress tracking.
+                    </p>
+                    <div class="tag-row"><span>FastAPI</span><span>SQLite3</span><span>UI Architecture</span></div>
+                    <button class="project-more" type="button">Read more</button>
+                </article>
+
+                <article class="project-card tilt-card" data-category="automation">
+                    <div class="project-card-top"><span class="project-number">02 / AUTOMATION</span><div class="project-icon"><img src="images/gear.svg" alt=""></div></div>
+                    <h3>Healthcare Revenue Cycle Management Automation</h3>
+                    <p>
+                        Built production-level unattended bots for eBilling claims processing with dynamic claims counts, 14-day cycle tracking, and autonomous rolling reporting dates.
+                    </p>
+                    <div class="tag-row"><span>UiPath</span><span>VB.NET</span><span>RCM</span></div>
+                    <button class="project-more" type="button">Read more</button>
+                </article>
+
+                <article class="project-card tilt-card" data-category="data web">
+                    <div class="project-card-top"><span class="project-number">03 / DATA</span><div class="project-icon"><img src="images/database.svg" alt=""></div></div>
+                    <h3>Large-Scale Web Extraction & Code Parsing</h3>
+                    <p>
+                        Extracted and restructured a 25-page official platform by ingesting raw HTML, removing heavy layout structures, and generating clean standalone files.
+                    </p>
+                    <div class="tag-row"><span>Python</span><span>Parsing</span><span>JavaScript</span></div>
+                    <button class="project-more" type="button">Read more</button>
+                </article>
+
+                <article class="project-card tilt-card" data-category="hardware">
+                    <div class="project-card-top"><span class="project-number">04 / HARDWARE</span><div class="project-icon"><img src="images/bolt.svg" alt=""></div></div>
+                    <h3>Automated Electric Groundnut Roaster</h3>
+                    <p>
+                        Designed a physical hardware machine with software-controlled heating logic, electrical routing, custom sensor ports, and automated thermal control.
+                    </p>
+                    <div class="tag-row"><span>C++</span><span>Microcontrollers</span><span>Thermal control</span></div>
+                    <button class="project-more" type="button">Read more</button>
+                </article>
+
+                <article class="project-card tilt-card" data-category="web">
+                    <div class="project-card-top"><span class="project-number">05 / INTERFACE</span><div class="project-icon"><img src="images/code.svg" alt=""></div></div>
+                    <h3>UI Replication & Front-End Systems</h3>
+                    <p>
+                        Built responsive static sites and interaction systems including State House pages, Carbon-style pages, FitMaker Figma-to-code, toast/modals, search, translate, and hamburger logic.
+                    </p>
+                    <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                    <button class="project-more" type="button">Read more</button>
+                </article>
+
+                <article class="project-card tilt-card" data-category="automation web">
+                    <div class="project-card-top"><span class="project-number">06 / WORKFLOW</span><div class="project-icon"><img src="images/gear.svg" alt=""></div></div>
+                    <h3>Agent Bob API Workflow Recorder</h3>
+                    <p>
+                        A Chrome extension and desktop-app concept for recording website API calls, grouping them into workflow steps, and generating RPA-ready prompts and code outputs.
+                    </p>
+                    <div class="tag-row"><span>Chrome Extension</span><span>RPA</span><span>Workflow Capture</span></div>
+                    <button class="project-more" type="button">Read more</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="skills-section section" id="skills">
+            <div class="section-label">Stack</div>
+
+            <div class="stack-grid">
+                <article class="stack-card tilt-card">
+                    <h3>Front-End & Web Architecture</h3>
+                    <p>HTML5, CSS, JavaScript, responsive layouts, mobile-first UI, DOM debugging, navigation logic, clean CSS/JS separation, Figma-to-code builds.</p>
+                </article>
+
+                <article class="stack-card tilt-card">
+                    <h3>Python & Data Science</h3>
+                    <p>Python automation, web scraping, parsing, XLSX generation, Power BI, SPSS, data pipelines, ML concepts, algorithmic logic, risk parameters.</p>
+                </article>
+
+                <article class="stack-card tilt-card">
+                    <h3>RPA & Back-End</h3>
+                    <p>UiPath, Blue Prism, Power Automate, VB.NET, C#, Java, SQL, FastAPI, ASP.NET Web APIs, SQLite3, Entity Framework, .NET MAUI.</p>
+                </article>
+
+                <article class="stack-card tilt-card">
+                    <h3>Systems & Game Development</h3>
+                    <p>C++, UE5, microcontroller logic, hardware-to-software integration, sensor ports, AC resistive heating control, and physical system automation.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="contact-section section" id="contact">
+            <div class="contact-card">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <h2>Let’s build something reliable.</h2>
+                    <p>
+                        I’m interested in automation systems, AI-assisted development, RPA tooling, front-end products, APIs, and hardware/software ideas that need disciplined engineering.
+                    </p>
+                </div>
+
+                <div class="timezone-grid">
+                    <article class="clock-card">
+                        <span>Local</span>
+                        <strong id="localTime">00:00:00</strong>
+                        <small id="localDate">Today</small>
+                    </article>
+
+                    <article class="clock-card">
+                        <span>UK</span>
+                        <strong id="ukTime">00:00:00</strong>
+                        <small id="ukDate">London time</small>
+                    </article>
+
+                    <article class="clock-card">
+                        <span>US</span>
+                        <strong id="usTime">00:00:00</strong>
+                        <small id="usDate">New York time</small>
+                    </article>
+                </div>
+            </div>
+
+            <div class="email-cta">
+                <h2><span data-i18n="ctaLine1">Need a reliable automation system, web product, or internal tool?</span><br><span data-i18n="ctaLine2">Let’s engineer it properly from idea to production.</span></h2>
+                <a href="mailto:adewaleeadeogun@gmail.com">
+                    <span><span data-i18n="sendMessage">Send a message</span></span>
+                    adewaleeadeogun@gmail.com
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalClose" type="button" aria-label="Close modal">×</button>
+            <p class="eyebrow">Project detail</p>
+            <h2 id="modalTitle">Project title</h2>
+            <p id="modalText">Project description</p>
+        </div>
+    </div>
+
+    <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+    <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
