@@ -1,5 +1,9 @@
-.vercel
-.env*
+﻿# Local settings and dependencies
+.env
+.env.*
+!.env.example
+node_modules/
+.vercel/
 
 # Local design experiments
 .codex-snapshots/
