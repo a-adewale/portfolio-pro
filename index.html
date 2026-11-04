@@ -85,11 +85,10 @@
         <nav class="side-nav" aria-label="Portfolio sections">
             <a href="#intro" class="active"><span class="nav-line"></span><span class="nav-label">Intro</span></a>
             <a href="#play"><span class="nav-line"></span><span class="nav-label">Play</span></a>
-            <a href="#applications"><span class="nav-line"></span><span class="nav-label" data-i18n="applications">Applications</span></a>
+            <a href="#skills"><span class="nav-line"></span><span class="nav-label">Stack</span></a>
             <a href="#about"><span class="nav-line"></span><span class="nav-label">About</span></a>
             <a href="#experience"><span class="nav-line"></span><span class="nav-label">Experience</span></a>
             <a href="#projects"><span class="nav-line"></span><span class="nav-label">Projects</span></a>
-            <a href="#skills"><span class="nav-line"></span><span class="nav-label">Stack</span></a>
             <a href="#contact"><span class="nav-line"></span><span class="nav-label">Contact</span></a>
         </nav>
 
@@ -256,32 +255,46 @@
         </section>
 
 
-        <section class="apps-section section" id="applications">
+        <section class="skills-section section" id="skills">
             <div class="section-heading compact">
-                <p class="eyebrow"><span data-i18n="applications">Applications</span></p>
-                <h2><span data-i18n="appsTitle">Tools I move between when building systems.</span></h2>
-                <p><span data-i18n="appsText">A focused toolkit across automation, web, data, and back-end engineering — the stack I use to turn ideas into production-ready systems.</span></p>
+                <span class="section-command" aria-hidden="true">$ cat skills.json</span>
+                <p class="eyebrow">Stack / Working tools</p>
+                <h2>Tools I build with.</h2>
             </div>
 
-            <div class="app-marquee">
-                <div class="app-track">
-                    <span><img src="images/uipath.svg" alt="">UiPath</span>
-                    <span><img src="images/python.svg" alt="">Python</span>
-                    <span><img src="images/js.svg" alt="">JavaScript</span>
-                    <span><img src="images/dotnet.svg" alt="">.NET</span>
-                    <span><img src="images/fastapi.svg" alt="">FastAPI</span>
-                    <span><img src="images/sql.svg" alt="">SQL</span>
-                    <span><img src="images/powerbi.svg" alt="">Power BI</span>
-                    <span><img src="images/ue5.svg" alt="">UE5</span>
-                    <span><img src="images/uipath.svg" alt="">UiPath</span>
-                    <span><img src="images/python.svg" alt="">Python</span>
-                    <span><img src="images/js.svg" alt="">JavaScript</span>
-                    <span><img src="images/dotnet.svg" alt="">.NET</span>
-                    <span><img src="images/fastapi.svg" alt="">FastAPI</span>
-                    <span><img src="images/sql.svg" alt="">SQL</span>
-                    <span><img src="images/powerbi.svg" alt="">Power BI</span>
-                    <span><img src="images/ue5.svg" alt="">UE5</span>
+            <div class="skills-universe" id="skillsUniverse" aria-label="Interactive globe of engineering skills">
+                <div class="skills-globe" id="skillsGlobe" role="img" aria-label="Rotating globe of tools and technologies. Drag to rotate.">
+                    <canvas class="skills-globe-canvas" id="skillsGlobeCanvas" aria-hidden="true"></canvas>
+                    <div class="skills-globe-nodes" id="skillsGlobeNodes" aria-hidden="true"></div>
                 </div>
+                <p class="skills-globe-hint">Drag to explore the stack <span aria-hidden="true">↔</span></p>
+            </div>
+
+            <div class="stack-grid">
+                <article class="stack-card tilt-card">
+                    <h3>Backend & APIs</h3>
+                    <p>Python, C#, VB.NET, FastAPI, ASP.NET, Entity Framework, REST/HTTP APIs, JSON, SQL, and SQLite3.</p>
+                </article>
+
+                <article class="stack-card tilt-card">
+                    <h3>Web & Interfaces</h3>
+                    <p>JavaScript, HTML5, CSS3, responsive layouts, Figma-to-code, reusable components, DOM interactions, and accessible controls.</p>
+                </article>
+
+                <article class="stack-card tilt-card">
+                    <h3>Automation & Data</h3>
+                    <p>UiPath, Orchestrator, REFramework, Blue Prism, Power Automate, Selenium, Power BI, SPSS, data processing, and reporting.</p>
+                </article>
+
+                <article class="stack-card tilt-card">
+                    <h3>Cloud & Systems</h3>
+                    <p>AWS, Azure, Git/GitHub, SharePoint, Jira, C++, microcontrollers, and hardware/software integration.</p>
+                </article>
+            </div>
+            <div class="credentials-strip" aria-label="Education and certifications">
+                <p><strong>B.Sc. Mechanical Engineering</strong><span>University of Lagos · 2024</span></p>
+                <p><strong>IIT Mechatronics Programme</strong><span>4th overall best · 2025</span></p>
+                <p><strong>UiPath Automation Developer Professional</strong><span>Certification and continuing training</span></p>
             </div>
         </section>
 
@@ -432,49 +445,6 @@
             </div>
             </div>
             <a class="all-projects-link" href="https://github.com/a-adewale" target="_blank" rel="noopener noreferrer">View my GitHub projects <span aria-hidden="true">↗</span></a>
-        </section>
-
-        <section class="skills-section section" id="skills">
-            <div class="section-heading compact">
-                <span class="section-command" aria-hidden="true">$ cat skills.json</span>
-                <p class="eyebrow">Stack / Working tools</p>
-                <h2>Tools I build with.</h2>
-            </div>
-
-            <div class="skills-universe" id="skillsUniverse" aria-label="Interactive globe of engineering skills">
-                <div class="skills-globe" id="skillsGlobe" role="img" aria-label="Rotating globe showing Python, JavaScript, FastAPI, SQL, UiPath, .NET, Power BI, C++, AWS, and Azure. Drag to rotate.">
-                    <canvas class="skills-globe-canvas" id="skillsGlobeCanvas" aria-hidden="true"></canvas>
-                    <div class="skills-globe-nodes" id="skillsGlobeNodes" aria-hidden="true"></div>
-                </div>
-                <p class="skills-globe-hint">Drag to explore the stack <span aria-hidden="true">↔</span></p>
-            </div>
-
-            <div class="stack-grid">
-                <article class="stack-card tilt-card">
-                    <h3>Backend & APIs</h3>
-                    <p>Python, C#, VB.NET, FastAPI, ASP.NET, Entity Framework, REST/HTTP APIs, JSON, SQL, and SQLite3.</p>
-                </article>
-
-                <article class="stack-card tilt-card">
-                    <h3>Web & Interfaces</h3>
-                    <p>JavaScript, HTML5, CSS3, responsive layouts, Figma-to-code, reusable components, DOM interactions, and accessible controls.</p>
-                </article>
-
-                <article class="stack-card tilt-card">
-                    <h3>Automation & Data</h3>
-                    <p>UiPath, Orchestrator, REFramework, Blue Prism, Power Automate, Selenium, Power BI, SPSS, data processing, and reporting.</p>
-                </article>
-
-                <article class="stack-card tilt-card">
-                    <h3>Cloud & Systems</h3>
-                    <p>AWS, Azure, Git/GitHub, SharePoint, Jira, C++, microcontrollers, and hardware/software integration.</p>
-                </article>
-            </div>
-            <div class="credentials-strip" aria-label="Education and certifications">
-                <p><strong>B.Sc. Mechanical Engineering</strong><span>University of Lagos · 2024</span></p>
-                <p><strong>IIT Mechatronics Programme</strong><span>4th overall best · 2025</span></p>
-                <p><strong>UiPath Automation Developer Professional</strong><span>Certification and continuing training</span></p>
-            </div>
         </section>
 
         <section class="contact-section section" id="contact">

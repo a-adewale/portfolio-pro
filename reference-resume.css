@@ -190,8 +190,22 @@
     width: 67px; padding: 4px; color: var(--text); text-align: center;
     font: 700 .64rem/1.2 var(--resume-mono); white-space: nowrap;
     will-change: transform, opacity;
+    pointer-events: none;
+    transition: filter .2s ease, opacity .2s ease;
 }
+#skills .globe-skill.is-front { pointer-events: auto; }
+#skills .globe-skill.is-front:hover { z-index: 50 !important; filter: drop-shadow(0 0 13px var(--accent)); color: var(--accent); text-shadow: 0 0 12px var(--accent); }
+#skills .globe-skill.is-front:hover img { transform: scale(1.2); filter: drop-shadow(0 0 8px var(--accent)); }
 #skills .globe-skill img { width: 37px; height: 37px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(0,0,0,.45)); }
+#skills .globe-skill img { transition: transform .2s ease, filter .2s ease; }
+#skills .globe-skill[data-skill="Express"] img,
+#skills .globe-skill[data-skill="Next.js"] img,
+#skills .globe-skill[data-skill="SQL"] img,
+#skills .globe-skill[data-skill="SQLite"] img { filter: invert(1) drop-shadow(0 0 2px rgba(255,255,255,.5)); }
+[data-theme="white"] #skills .globe-skill[data-skill="Express"] img,
+[data-theme="white"] #skills .globe-skill[data-skill="Next.js"] img,
+[data-theme="white"] #skills .globe-skill[data-skill="SQL"] img,
+[data-theme="white"] #skills .globe-skill[data-skill="SQLite"] img { filter: none; }
 #skills .globe-skill .globe-glyph { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 8px; color: var(--bg); background: var(--accent); font: 900 .78rem/1 var(--font-main); }
 #skills .skills-globe-hint { position: absolute; bottom: 14px; margin: 0; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; color: var(--soft); background: var(--panel-2); font: 700 .69rem/1 var(--resume-mono); }
 #skills .stack-grid { grid-template-columns: repeat(4,minmax(0,1fr)) !important; gap: 10px !important; padding: 0; border: 0; background: none; }
@@ -224,9 +238,14 @@
     #experience .commit-bar small { display: none; }
     #experience .experience-body h3 { font-size: 1.17rem; }
     #projects .project-card, #projects .project-card:first-child { min-height: 0 !important; }
-    #skills .skills-universe { min-height: 340px; }
+    #skills .skills-universe { min-height: 420px; }
     #skills .skills-globe { width: min(330px, 94vw); }
     #skills .globe-skill { width: 56px; font-size: .55rem; }
     #skills .globe-skill img, #skills .globe-skill .globe-glyph { width: 30px; height: 30px; }
 }
 @media (prefers-reduced-motion: reduce) { #skills .globe-skill { will-change: auto; } }
+
+@media (min-width: 761px) {
+    #skills .skills-universe { min-height: 565px; }
+    #skills .skills-globe { width: min(530px, 88vw); }
+}
