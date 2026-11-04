@@ -1,2 +1,6 @@
 .vercel
 .env*
+
+# Local design experiments
+.codex-snapshots/
+.icon-preview/
