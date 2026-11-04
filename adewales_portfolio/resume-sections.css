@@ -1,0 +1,805 @@
+/* A compact developer-workspace treatment for the resume sections. */
+.about-section,
+.experience-section,
+.projects-section,
+.skills-section,
+.contact-section {
+    --resume-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.section-command {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 13px;
+    color: var(--accent);
+    font: 700 .72rem/1.4 var(--resume-mono);
+    letter-spacing: .015em;
+}
+
+.section-command::before {
+    content: ">";
+    display: grid;
+    place-items: center;
+    width: 21px;
+    height: 21px;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 6px;
+}
+
+.about-section .section-heading h2,
+.experience-section .section-heading h2,
+.projects-section .section-heading h2,
+.skills-section .section-heading h2 {
+    max-width: 860px;
+    font-size: clamp(2.25rem, 5vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -.065em;
+}
+
+.about-showcase {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important;
+    gap: 12px !important;
+}
+
+.about-statement {
+    min-height: 370px !important;
+    gap: 24px;
+    padding: 28px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 8%, var(--panel)), var(--panel)) !important;
+    box-shadow: none !important;
+}
+
+.about-statement::before {
+    content: "profile.json  ·  engineering / about";
+    display: block;
+    margin: -28px -28px 0;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    background: color-mix(in srgb, var(--panel-2) 86%, transparent);
+    font: 700 .68rem/1.2 var(--resume-mono);
+    letter-spacing: .02em;
+}
+
+.about-profile {
+    display: flex;
+    align-items: center;
+    gap: clamp(18px, 3vw, 34px);
+}
+
+.about-mark {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: clamp(78px, 9vw, 112px);
+    height: clamp(78px, 9vw, 112px);
+    border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--line));
+    border-radius: 16px;
+    color: var(--text);
+    background: color-mix(in srgb, var(--accent) 12%, var(--panel-2));
+    font-size: clamp(2.3rem, 4vw, 3.8rem) !important;
+    letter-spacing: -.12em;
+}
+
+.about-profile-info {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.about-profile-info > span {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 9px;
+    color: var(--accent);
+    font: 700 .68rem/1.4 var(--resume-mono);
+}
+
+.about-profile-info strong {
+    overflow-wrap: anywhere;
+    color: var(--soft);
+    font: 700 .76rem/1.35 var(--font-main);
+}
+
+.about-statement > p {
+    max-width: 660px;
+    margin: 0 !important;
+    font-size: clamp(1.14rem, 2vw, 1.65rem) !important;
+    line-height: 1.4;
+}
+
+.about-disciplines span {
+    border-radius: 7px;
+    font-family: var(--resume-mono);
+    font-size: .68rem;
+    text-transform: none;
+}
+
+.principle-grid {
+    gap: 12px !important;
+}
+
+.principle-grid article {
+    min-height: 0 !important;
+    padding: 19px !important;
+    border-radius: 16px !important;
+    background: var(--panel) !important;
+}
+
+.principle-grid article > span {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    font-family: var(--resume-mono);
+}
+
+.principle-grid h3 {
+    margin: 16px 0 7px !important;
+    font-size: 1rem;
+}
+
+.experience-ledger {
+    gap: 12px !important;
+}
+
+.experience-ledger .experience-card {
+    grid-template-columns: 54px minmax(0, 1fr) !important;
+    border-radius: 16px !important;
+    box-shadow: none !important;
+}
+
+.experience-rail {
+    padding: 20px 8px !important;
+    background: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+}
+
+.experience-rail strong {
+    font-family: var(--resume-mono);
+}
+
+.experience-rail span {
+    min-height: 30px !important;
+}
+
+.experience-body {
+    padding: 22px 24px !important;
+}
+
+.experience-topline {
+    margin-bottom: 12px !important;
+}
+
+.experience-body h3 {
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+}
+
+.experience-body > p {
+    max-width: 850px;
+    margin: 9px 0 15px !important;
+}
+
+.experience-logos img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.experience-impact {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-block: 13px;
+}
+
+.projects-section .project-grid {
+    gap: 12px !important;
+}
+
+.projects-section .project-card,
+.projects-section .project-card:first-child {
+    min-height: 300px !important;
+    padding: 22px !important;
+    border-radius: 16px !important;
+    background: var(--panel) !important;
+    box-shadow: none !important;
+}
+
+.projects-section .project-card:first-child {
+    grid-column: auto !important;
+}
+
+.projects-section .project-card:first-child::after {
+    display: none !important;
+}
+
+.projects-section .project-card::before {
+    width: 2px;
+    background: var(--accent);
+}
+
+.project-card-top {
+    margin-bottom: 24px !important;
+}
+
+.project-number {
+    color: var(--accent);
+    font-family: var(--resume-mono);
+    letter-spacing: .02em;
+}
+
+.projects-section .project-card h3 {
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.projects-section .project-card p {
+    line-height: 1.5 !important;
+}
+
+.projects-section .project-card .tag-row {
+    padding-top: 16px !important;
+}
+
+.skills-section .section-heading {
+    margin-bottom: 22px !important;
+}
+
+.stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+}
+
+.stack-card {
+    position: relative;
+    min-height: 170px;
+    padding: 22px !important;
+    border-radius: 16px !important;
+    background: var(--panel) !important;
+    box-shadow: none !important;
+}
+
+.stack-card::before {
+    content: "MODULE / 0" counter(stack);
+    display: block;
+    margin-bottom: 24px;
+    color: var(--accent);
+    font: 700 .68rem/1.3 var(--resume-mono);
+}
+
+.stack-grid {
+    counter-reset: stack;
+}
+
+.stack-card {
+    counter-increment: stack;
+}
+
+.stack-card h3 {
+    margin-bottom: 9px;
+}
+
+.credentials-strip {
+    border-radius: 16px;
+}
+
+.contact-card {
+    border-radius: 18px !important;
+    background: var(--panel) !important;
+    box-shadow: none !important;
+}
+
+.contact-card .section-command {
+    margin-bottom: 18px;
+}
+
+.email-cta {
+    border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+    .about-showcase {
+        grid-template-columns: 1fr !important;
+    }
+
+    .principle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .about-statement {
+        min-height: 0 !important;
+        padding: 22px !important;
+    }
+
+    .about-statement::before {
+        margin: -22px -22px 0;
+    }
+
+    .about-profile {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .about-mark {
+        width: 66px;
+        height: 66px;
+        font-size: 2rem !important;
+    }
+
+    .about-profile-info > span {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 5px;
+        font-size: .6rem;
+    }
+
+    .about-profile-info strong {
+        font-size: .7rem;
+    }
+
+    .principle-grid,
+    .stack-grid,
+    .projects-section .project-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .principle-grid article {
+        padding: 17px !important;
+    }
+
+    .experience-ledger .experience-card {
+        grid-template-columns: 36px minmax(0, 1fr) !important;
+    }
+
+    .experience-body {
+        padding: 18px !important;
+    }
+
+    .experience-topline {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .projects-section .project-card,
+    .projects-section .project-card:first-child {
+        min-height: 0 !important;
+    }
+}
+
+/* Layout details taken from the extracted reference: profile + terminal,
+   commit timeline, explorer + pinned work, and contact data panel. */
+.about-showcase {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch;
+}
+
+.about-statement {
+    min-height: 400px !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-profile {
+    flex-direction: column;
+    align-items: center;
+    gap: 23px;
+}
+
+.about-mark {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    outline: 1px solid color-mix(in srgb, var(--accent-2) 36%, transparent);
+    outline-offset: 9px;
+}
+
+.about-profile-info {
+    width: min(100%, 330px);
+    gap: 0;
+    text-align: left;
+}
+
+.about-profile-info > span {
+    grid-template-columns: 90px minmax(0, 1fr);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.about-statement > p {
+    max-width: 360px;
+    margin: 2px 0 0 !important;
+    font-size: clamp(1.1rem, 1.5vw, 1.45rem) !important;
+}
+
+.about-disciplines {
+    justify-content: center;
+}
+
+.about-terminal,
+.contact-code,
+.project-explorer {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--panel);
+}
+
+.workspace-bar {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 43px;
+    padding: 0 15px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    background: var(--panel-2);
+    font: 700 .7rem/1.3 var(--resume-mono);
+}
+
+.workspace-dots {
+    display: inline-flex;
+    gap: 5px;
+}
+
+.workspace-dots i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: .8;
+}
+
+.workspace-dots i:nth-child(2) { background: var(--accent-2); }
+.workspace-dots i:nth-child(3) { background: var(--muted); }
+.workspace-bar-end { margin-left: auto; opacity: .65; }
+
+.about-terminal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 355px;
+    padding: clamp(23px, 3vw, 38px);
+}
+
+.terminal-prompt {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font: 700 .85rem/1.5 var(--resume-mono);
+}
+
+.terminal-prompt span { color: var(--accent-2); }
+
+.terminal-output {
+    margin: 0 0 26px;
+    padding-left: 17px;
+    border-left: 2px solid color-mix(in srgb, var(--accent) 48%, transparent);
+    color: var(--soft);
+    font-size: clamp(.9rem, 1.15vw, 1.05rem);
+    line-height: 1.65;
+}
+
+.terminal-cursor {
+    color: var(--accent);
+    font: 900 1.2rem/1 var(--resume-mono);
+}
+
+.about-section .principle-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 12px;
+}
+
+.experience-ledger {
+    position: relative;
+    gap: 24px !important;
+}
+
+.experience-ledger::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: color-mix(in srgb, var(--accent) 52%, var(--line));
+}
+
+.experience-ledger .experience-card {
+    width: calc(50% - 25px);
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    overflow: visible;
+}
+
+.experience-ledger .experience-card:nth-child(odd) {
+    justify-self: start;
+}
+
+.experience-ledger .experience-card:nth-child(even) {
+    justify-self: end;
+}
+
+.experience-ledger .experience-card::after {
+    content: "";
+    position: absolute;
+    top: 27px;
+    right: -32px;
+    width: 11px;
+    height: 11px;
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    background: var(--bg);
+}
+
+.experience-ledger .experience-card:nth-child(even)::after {
+    right: auto;
+    left: -32px;
+}
+
+.experience-body {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-left: 0;
+    border-radius: 0 16px 16px 0;
+    background: var(--panel);
+}
+
+.experience-topline {
+    flex-wrap: wrap;
+}
+
+.experience-impact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px 17px;
+}
+
+.project-workspace {
+    display: grid;
+    grid-template-columns: minmax(190px, 23%) minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+}
+
+.project-explorer {
+    position: sticky;
+    top: 28px;
+}
+
+.project-explorer-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0;
+    padding: 18px 16px 10px;
+    color: var(--soft);
+    font-weight: 800;
+}
+
+.project-explorer-title strong {
+    color: var(--accent);
+    font: 700 .78rem/1.5 var(--resume-mono);
+}
+
+.project-explorer .project-filter {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 4px 10px 12px;
+}
+
+.project-explorer .project-filter button {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: 7px;
+}
+
+.project-explorer-note {
+    margin: 0;
+    padding: 13px 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: .72rem;
+    line-height: 1.4;
+}
+
+.projects-section .project-grid {
+    align-items: stretch;
+}
+
+.skills-section .stack-grid {
+    position: relative;
+    padding: clamp(16px, 3vw, 34px);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        var(--panel);
+    background-size: 42px 42px, 42px 42px, auto;
+}
+
+.skills-section .stack-card {
+    border-color: color-mix(in srgb, var(--accent) 25%, var(--line));
+    background: color-mix(in srgb, var(--panel) 93%, var(--accent)) !important;
+}
+
+.contact-card {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 22px;
+}
+
+.contact-code-body {
+    display: grid;
+    gap: 5px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    color: var(--soft);
+    font: 700 .78rem/1.65 var(--resume-mono);
+    white-space: pre;
+}
+
+.contact-code-body em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.contact-code-body strong,
+.contact-code-body a {
+    color: var(--accent-2);
+    font-weight: 700;
+}
+
+.contact-code-body a:hover { text-decoration: underline; }
+
+.contact-card .timezone-grid {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 1050px) {
+    .experience-ledger::before { left: 8px; }
+    .experience-ledger .experience-card,
+    .experience-ledger .experience-card:nth-child(even) {
+        width: calc(100% - 30px);
+        justify-self: end;
+    }
+    .experience-ledger .experience-card::after,
+    .experience-ledger .experience-card:nth-child(even)::after {
+        left: -30px;
+        right: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .about-showcase,
+    .contact-card,
+    .project-workspace {
+        grid-template-columns: 1fr !important;
+    }
+    .about-section .principle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .project-explorer { position: static; }
+    .project-explorer .project-filter {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .project-explorer .project-filter button { width: auto; }
+}
+
+@media (max-width: 560px) {
+    .about-statement { min-height: 0 !important; }
+    .about-mark { width: 100px; height: 100px; }
+    .about-section .principle-grid { grid-template-columns: 1fr; }
+    .about-terminal-body { min-height: 0; }
+    .experience-ledger .experience-card,
+    .experience-ledger .experience-card:nth-child(even) { width: calc(100% - 22px); }
+    .experience-ledger .experience-card::after,
+    .experience-ledger .experience-card:nth-child(even)::after { left: -23px; }
+    .contact-code-body { font-size: .65rem; padding: 16px; }
+}
+
+/* Keep the content on one shared alignment grid. */
+.about-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: clamp(2.4rem, 4vw, 3.4rem) !important;
+}
+
+.about-section .principle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-ledger::before {
+    left: 15px;
+}
+
+.experience-ledger .experience-card,
+.experience-ledger .experience-card:nth-child(odd),
+.experience-ledger .experience-card:nth-child(even) {
+    width: calc(100% - 44px);
+    justify-self: end;
+    grid-template-columns: 44px minmax(0, 1fr) !important;
+}
+
+.experience-ledger .experience-card::after,
+.experience-ledger .experience-card:nth-child(even)::after {
+    left: -34px;
+    right: auto;
+}
+
+.experience-rail {
+    border: 1px solid var(--line);
+    border-right: 0;
+    border-radius: 16px 0 0 16px;
+}
+
+.experience-impact {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.experience-impact > span {
+    min-width: 0;
+    width: auto;
+}
+
+.project-explorer {
+    position: static;
+}
+
+.contact-code-body {
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.contact-card {
+    align-items: start;
+}
+
+.contact-card .timezone-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.contact-card .clock-card {
+    padding: 15px 17px;
+}
+
+.contact-card .clock-card strong {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+    .experience-impact {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-ledger .experience-card,
+    .experience-ledger .experience-card:nth-child(odd),
+    .experience-ledger .experience-card:nth-child(even) {
+        width: calc(100% - 25px);
+    }
+
+    .experience-ledger .experience-card::after,
+    .experience-ledger .experience-card:nth-child(even)::after {
+        left: -25px;
+    }
+}
+
+@media (max-width: 560px) {
+    .contact-card .timezone-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card .clock-card {
+        padding: 12px 16px;
+    }
+}

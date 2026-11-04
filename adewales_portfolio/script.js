@@ -9,7 +9,6 @@ const modalTitle = document.getElementById('modalTitle');
 const modalText = document.getElementById('modalText');
 
 const enterSite = document.getElementById('enterSite');
-const matrixLineOne = document.getElementById('matrixLineOne');
 const matrixFinal = document.getElementById('matrixFinal');
 const buildLabStage = document.getElementById('buildLabStage');
 
@@ -36,11 +35,6 @@ function typeInto(element, text, speed = 76) {
 }
 
 async function runMatrixWelcome() {
-    await typeInto(matrixLineOne, 'welcome neo...', 70);
-    await new Promise(resolve => setTimeout(resolve, 700));
-
-    matrixLineOne.parentElement.style.display = 'none';
-
     if (buildLabStage) buildLabStage.classList.add('show');
     await typeInto(matrixFinal, 'Welcome to my build lab', 50);
 
@@ -61,7 +55,7 @@ if (enterSite) {
 }
 
 window.addEventListener('load', () => {
-    setTimeout(runMatrixWelcome, 400);
+    runMatrixWelcome();
 });
 
 function showToast(message) {
@@ -141,25 +135,54 @@ document.querySelectorAll('.tilt-card').forEach(card => {
 
 const navLinks = Array.from(document.querySelectorAll('.side-nav a'));
 const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+let sectionOffsets = sections.map(section => section.offsetTop);
+let activeNavId = null;
+
+function refreshSectionOffsets() {
+    sectionOffsets = sections.map(section => section.offsetTop);
+    updateActiveNav();
+}
 
 function updateActiveNav() {
     const scrollPosition = window.scrollY + window.innerHeight * 0.32;
 
     let activeId = sections[0]?.id;
 
-    sections.forEach(section => {
-        if (section.offsetTop <= scrollPosition) {
-            activeId = section.id;
+    sectionOffsets.forEach((offset, index) => {
+        if (offset <= scrollPosition) {
+            activeId = sections[index].id;
         }
     });
 
+    if (activeId === activeNavId) return;
+    activeNavId = activeId;
     navLinks.forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + activeId);
     });
 }
 
-window.addEventListener('scroll', updateActiveNav);
+let scrollUpdateQueued = false;
+
+function updateScrollUi() {
+    scrollUpdateQueued = false;
+    updateActiveNav();
+    updateMobileControlsOnScroll();
+}
+
+function queueScrollUiUpdate() {
+    if (scrollUpdateQueued) return;
+    scrollUpdateQueued = true;
+    requestAnimationFrame(updateScrollUi);
+}
+
+window.addEventListener('scroll', queueScrollUiUpdate, { passive: true });
 updateActiveNav();
+window.addEventListener('load', refreshSectionOffsets);
+window.addEventListener('resize', refreshSectionOffsets);
+if (typeof ResizeObserver !== 'undefined') {
+    const pageShell = document.querySelector('.page-shell');
+    if (pageShell) new ResizeObserver(refreshSectionOffsets).observe(pageShell);
+}
 
 const themes = ['default', 'green', 'blue', 'gold'];
 let themeIndex = 0;
@@ -167,8 +190,12 @@ let themeIndex = 0;
 document.getElementById('paletteCard').addEventListener('click', () => {
     themeIndex = (themeIndex + 1) % themes.length;
     const theme = themes[themeIndex];
+    const isWhite = document.documentElement.getAttribute('data-theme') === 'white';
 
-    if (theme === 'default') {
+    if (isWhite) {
+        if (theme === 'default') document.documentElement.removeAttribute('data-palette');
+        else document.documentElement.setAttribute('data-palette', theme);
+    } else if (theme === 'default') {
         document.documentElement.removeAttribute('data-theme');
     } else {
         document.documentElement.setAttribute('data-theme', theme);
@@ -195,15 +222,117 @@ document.getElementById('typefaceCard').addEventListener('click', () => {
     showToast(`${selectedTypeface.label} typeface enabled.`);
 });
 
-document.getElementById('vibeCard').addEventListener('click', () => {
-    document.body.classList.toggle('vibe-mode');
-    showToast(document.body.classList.contains('vibe-mode') ? 'Vibes enabled.' : 'Vibes paused.');
-});
+const vibeCard = document.getElementById('vibeCard');
+const vibeCurrent = document.getElementById('vibeCurrent');
+const vibeStates = [
+    { label: 'Full ambient', toast: 'Ambient lights and card motion enabled.', lightsOff: false, motionOff: false },
+    { label: 'Motion only', toast: 'Background lights switched off.', lightsOff: true, motionOff: false },
+    { label: 'Still', toast: 'Background lights and card motion paused.', lightsOff: true, motionOff: true }
+];
+let vibeStateIndex = 0;
 
-document.getElementById('focusCard').addEventListener('click', () => {
-    document.body.classList.toggle('focus-mode');
-    showToast(document.body.classList.contains('focus-mode') ? 'Focus mode enabled.' : 'Focus mode disabled.');
-});
+if (vibeCard) {
+    vibeCard.addEventListener('click', () => {
+        vibeStateIndex = (vibeStateIndex + 1) % vibeStates.length;
+        const state = vibeStates[vibeStateIndex];
+        document.body.classList.toggle('vibe-lights-off', state.lightsOff);
+        document.body.classList.toggle('vibe-motion-off', state.motionOff);
+        vibeCard.classList.toggle('active', vibeStateIndex === 0);
+        vibeCard.setAttribute('aria-label', `Vibes: ${state.label}. Click for the next setting.`);
+        if (vibeCurrent) vibeCurrent.textContent = state.label;
+        showToast(state.toast);
+    });
+}
+
+const f1FolderCard = document.getElementById('f1Card');
+const f1FolderToggle = document.getElementById('f1FolderToggle');
+const f1FolderDetails = document.getElementById('f1FolderDetails');
+
+if (f1FolderCard && f1FolderToggle && f1FolderDetails) {
+    const f1MobileLayout = window.matchMedia('(max-width: 980px)');
+    const f1FolderSheets = f1FolderCard.querySelectorAll('[data-f1-view]');
+    let f1PreviewShown = false;
+    let f1PreviewActive = false;
+    let f1UserOpened = false;
+    let f1PreviewTimer = null;
+
+    const setF1FolderOpen = isOpen => {
+        f1FolderCard.classList.toggle('folder-open', isOpen);
+        f1FolderToggle.setAttribute('aria-expanded', String(isOpen));
+        f1FolderToggle.setAttribute('aria-label', `${isOpen ? 'Close' : 'Open'} F1 Intelligence folder`);
+        f1FolderDetails.setAttribute('aria-hidden', String(!isOpen));
+        f1FolderSheets.forEach(sheet => {
+            sheet.tabIndex = isOpen ? 0 : -1;
+            sheet.setAttribute('aria-hidden', String(!isOpen));
+        });
+    };
+
+    const closeF1Folder = () => {
+        clearTimeout(f1PreviewTimer);
+        f1PreviewActive = false;
+        f1UserOpened = false;
+        setF1FolderOpen(false);
+    };
+
+    f1FolderToggle.addEventListener('click', event => {
+        if (!f1MobileLayout.matches && event.detail !== 0) {
+            setF1FolderOpen(true);
+            return;
+        }
+
+        if (f1PreviewActive) {
+            clearTimeout(f1PreviewTimer);
+            f1PreviewActive = false;
+            f1UserOpened = true;
+            setF1FolderOpen(true);
+            return;
+        }
+
+        f1UserOpened = !f1UserOpened;
+        setF1FolderOpen(f1UserOpened);
+    });
+
+    f1FolderCard.addEventListener('pointerenter', event => {
+        if (!f1MobileLayout.matches && event.pointerType === 'mouse') setF1FolderOpen(true);
+    });
+
+    f1FolderCard.addEventListener('pointerleave', event => {
+        if (!f1MobileLayout.matches && event.pointerType === 'mouse' && !f1FolderCard.querySelector(':focus-visible')) closeF1Folder();
+    });
+
+    f1FolderToggle.addEventListener('focus', () => {
+        if (!f1MobileLayout.matches) setF1FolderOpen(true);
+    });
+
+    f1FolderCard.addEventListener('focusout', event => {
+        if (!f1MobileLayout.matches && !f1FolderCard.contains(event.relatedTarget) && !f1FolderCard.matches(':hover')) closeF1Folder();
+    });
+
+    const f1Visibility = new IntersectionObserver(entries => {
+        if (!f1MobileLayout.matches) return;
+        const visibility = entries[0].intersectionRatio;
+
+        if (visibility < .15) {
+            closeF1Folder();
+            return;
+        }
+
+        if (visibility >= .6 && !f1PreviewShown) {
+            f1PreviewShown = true;
+            f1PreviewActive = true;
+            setF1FolderOpen(true);
+            f1PreviewTimer = setTimeout(() => {
+                f1PreviewActive = false;
+                if (!f1UserOpened) setF1FolderOpen(false);
+            }, 2000);
+        }
+    }, { threshold: [.15, .6] });
+
+    f1Visibility.observe(f1FolderCard);
+    f1MobileLayout.addEventListener('change', () => {
+        closeF1Folder();
+    });
+}
 
 document.getElementById('contrastCard').addEventListener('click', () => {
     document.body.classList.toggle('contrast-mode');
@@ -225,12 +354,11 @@ document.querySelectorAll('.project-filter button').forEach(button => {
 });
 
 const projectDetails = {
-    'Front-End & Full-Stack Educational Coding Platform': 'A gamified learning platform concept with responsive UI, FastAPI endpoints, SQLite3 schema planning, real-time code feedback, and progress tracking per student.',
-    'Healthcare Revenue Cycle Management Automation': 'A production-level RPA solution for eBilling claims workflows, dynamic claim-count reading, robust selector handling, Orchestrator asset state, and rolling 14-day reporting cycles.',
-    'Large-Scale Web Extraction & Code Parsing': 'A Python and JavaScript extraction workflow for a 25-page platform, stripping complex layouts and restructuring clean standalone files for analysis and reuse.',
-    'Automated Electric Groundnut Roaster': 'A hardware/software system integrating C++ logic, AC resistive heating, electrical routing, and sensor ports for controlled roasting automation.',
-    'UI Replication & Front-End Systems': 'Front-end builds including State House pages, Carbon-style pages, FitMaker Figma-to-code, toast/modals, functional search, Google Translate integration, and responsive menus.',
-    'Agent Bob API Workflow Recorder': 'A product concept for recording browser API calls, grouping them into workflow steps, and generating RPA prompts or VB.NET implementation notes.'
+    'Educational Coding Platform': 'A prototype for gamified programming lessons using responsive interfaces, FastAPI routes, SQLite3 schema planning, code-feedback workflows, and student progress tracking.',
+    'Healthcare Workflow Automation': 'Production automations for visit confirmation, invoice balance adjustments, and rejected claims. These workflows remove approximately 50, 40, and 10 hours of weekly manual work respectively, using UiPath, Python, JavaScript, and API integrations.',
+    'Large-Scale Web Extraction & Code Parsing': 'A Python and JavaScript workflow for ingesting a 25-page web platform, removing layout-heavy markup, and producing standalone files for analysis and reuse.',
+    'Automated Electric Groundnut Roaster': 'C++ and microcontroller software for an automated roasting system, connecting sensor input, heating control, and physical operation.',
+    'UI Replication & Front-End Systems': 'Responsive Figma-to-code interfaces with working navigation, search, modals, mobile menus, translation controls, and stateful DOM behaviour.'
 };
 
 document.querySelectorAll('.project-more').forEach(button => {
@@ -359,14 +487,16 @@ if (themeToggle) {
         const isWhite = document.documentElement.getAttribute('data-theme') === 'white';
 
         if (isWhite) {
-            document.documentElement.removeAttribute('data-theme');
+            if (themes[themeIndex] === 'default') document.documentElement.removeAttribute('data-theme');
+            else document.documentElement.setAttribute('data-theme', themes[themeIndex]);
             document.documentElement.removeAttribute('data-palette');
-            themeToggle.querySelector('.theme-toggle-label').textContent = 'White Mode';
+            themeToggle.querySelector('.theme-mode-word').textContent = 'White';
             showToast('Dark portfolio mode restored.');
         } else {
             document.documentElement.setAttribute('data-theme', 'white');
-            document.documentElement.setAttribute('data-palette', themes[themeIndex] === 'default' ? '' : themes[themeIndex]);
-            themeToggle.querySelector('.theme-toggle-label').textContent = 'Dark Mode';
+            if (themes[themeIndex] === 'default') document.documentElement.removeAttribute('data-palette');
+            else document.documentElement.setAttribute('data-palette', themes[themeIndex]);
+            themeToggle.querySelector('.theme-mode-word').textContent = 'Dark';
             showToast('White reading mode enabled.');
         }
     });
@@ -467,27 +597,6 @@ if (mobileMenuButton && sidebar) {
 
 
 
-const buildProgressBar = document.getElementById('buildProgressBar');
-const buildProgressText = document.getElementById('buildProgressText');
-function animateBuildProgress() {
-    if (!buildProgressBar || !buildProgressText) return;
-    const target = 90;
-    const duration = 2400;
-    const start = performance.now();
-    function update(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const value = Math.round(target * eased);
-        buildProgressBar.style.width = value + '%';
-        buildProgressText.textContent = value + '%';
-        if (progress < 1) requestAnimationFrame(update);
-        else { buildProgressBar.style.width = target + '%'; buildProgressText.textContent = target + '%'; }
-    }
-    requestAnimationFrame(update);
-}
-window.addEventListener('load', animateBuildProgress);
-
-
 // V7 fix Applications nav and close menu state.
 document.querySelectorAll('.side-nav a').forEach(link => {
     link.addEventListener('click', () => {
@@ -500,28 +609,33 @@ document.querySelectorAll('.side-nav a').forEach(link => {
 
 // Top controls recede while scrolling down and return when scrolling reverses.
 let lastMobileScrollY = window.scrollY;
-let mobileControlTimer = null;
-
 function updateMobileControlsOnScroll() {
     const currentY = window.scrollY;
+    const isMobileLayout = window.innerWidth <= 980;
+
+    if (isMobileLayout) {
+        document.body.classList.toggle('mobile-brand-away', currentY > 24);
+        const scrollingDown = currentY > lastMobileScrollY + 2 && currentY > 90;
+        const scrollingUp = currentY < lastMobileScrollY - 2;
+        if (scrollingDown) document.body.classList.add('mobile-controls-dim');
+        if (scrollingUp || currentY < 90) document.body.classList.remove('mobile-controls-dim');
+        lastMobileScrollY = Math.max(currentY, 0);
+        return;
+    }
+
+    document.body.classList.remove('mobile-brand-away');
+
     const scrollingDown = currentY > lastMobileScrollY + 2 && currentY > 90;
     const scrollingUp = currentY < lastMobileScrollY - 2;
 
     if (scrollingDown) document.body.classList.add('mobile-controls-dim');
     if (scrollingUp || currentY < 90) document.body.classList.remove('mobile-controls-dim');
 
-    clearTimeout(mobileControlTimer);
-    mobileControlTimer = setTimeout(() => {
-        if (window.scrollY < 90) {
-            document.body.classList.remove('mobile-controls-dim');
-        }
-    }, 180);
-
     lastMobileScrollY = Math.max(currentY, 0);
 }
 
-window.addEventListener('scroll', updateMobileControlsOnScroll, { passive: true });
-window.addEventListener('resize', updateMobileControlsOnScroll);
+window.addEventListener('resize', queueScrollUiUpdate);
+window.addEventListener('load', queueScrollUiUpdate);
 
 
 // V16 restore mobile menu and social-icon state when returning via browser history/BFCache.
@@ -609,26 +723,39 @@ const wakatimeHeading = document.getElementById('wakatimeHeading');
 const wakatimeDetail = document.getElementById('wakatimeDetail');
 const wakatimeLink = document.getElementById('wakatimeLink');
 
+function setWakatimeHeading(text) {
+    if (!wakatimeHeading) return;
+    wakatimeHeading.textContent = text;
+    wakatimeHeading.classList.toggle('is-long-title', text.length > 32);
+    wakatimeHeading.classList.toggle('is-very-long-title', text.length > 52);
+}
+
 async function loadWakatimeStatus() {
     if (!wakatimeHeading) return;
 
     try {
-        const response = await fetch('/api/wakatime', { headers: { Accept: 'application/json' } });
+        const response = await fetch('/api/wakatime', { cache: 'no-store', headers: { Accept: 'application/json' } });
         if (!response.ok) throw new Error('WakaTime activity is unavailable');
 
         const activity = await response.json();
         wakatimeStatus.textContent = activity.isActive ? 'Coding now' : activity.relativeTime;
-        wakatimeHeading.textContent = activity.project
+        setWakatimeHeading(activity.project
             ? `Working on ${activity.project}`
-            : 'See what I am working on';
+            : 'See what I am working on');
         wakatimeDetail.textContent = [activity.language, activity.category].filter(Boolean).join(' · ') || 'Recent development activity';
         if (activity.profileUrl) wakatimeLink.href = activity.profileUrl;
     } catch (error) {
         wakatimeStatus.textContent = 'Development status';
-        wakatimeHeading.textContent = 'See what I am working on';
+        setWakatimeHeading('See what I am working on');
         wakatimeDetail.textContent = 'WakaTime connection is waiting to be configured.';
     }
 }
 
 window.addEventListener('load', loadWakatimeStatus);
+window.setInterval(() => {
+    if (!document.hidden) loadWakatimeStatus();
+}, 60_000);
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) loadWakatimeStatus();
+});
 

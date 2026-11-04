@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adewale ADEOGUN | Automation Engineer Portfolio</title>
-    <meta name="description" content="Portfolio for a multidisciplinary Software Engineer, RPA Developer, and Data Scientist specializing in automation, web engineering, and hardware-to-software integration.">
+    <title>Adewale ADEOGUN | Software Engineer</title>
+    <meta name="description" content="Adewale Adeogun is a software engineer building backend APIs, production automation, data workflows, and responsive web interfaces.">
     <link rel="icon" type="image/svg+xml" href="images/dev-favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="play-console-fixes.css">
+    <link rel="stylesheet" href="f1-enhancements.css">
+    <link rel="stylesheet" href="portfolio-polish.css">
+    <link rel="stylesheet" href="resume-sections.css">
 </head>
 <body>
-    <div class="build-progress" aria-label="Portfolio build progress">
-        <span class="build-progress-label">Portfolio build progress</span>
-        <div class="build-progress-track"><span class="build-progress-bar" id="buildProgressBar"></span></div>
-        <strong id="buildProgressText">0%</strong>
-    </div>
-
     <a href="#intro" class="mobile-brand"><span>Adewale</span><strong>ADEOGUN</strong></a>
     <div class="welcome-screen" id="welcomeScreen">
         <div class="welcome-inner matrix-welcome">
             <div class="matrix-terminal" id="matrixTerminal">
-                <p class="matrix-line only-line"><span id="matrixLineOne"></span><span class="typing-caret matrix-caret"></span></p>
-
                 <div class="build-lab-stage" id="buildLabStage">
                     <span class="welcome-kicker">Portfolio boot sequence</span>
                     <h1><span id="matrixFinal"></span><span class="typing-caret"></span></h1>
@@ -37,10 +33,13 @@
 
     <div class="top-right-controls">
         <button class="theme-toggle-card" id="themeToggle" type="button" aria-label="Toggle white mode">
-            <span class="theme-toggle-label">White Mode</span>
+            <span class="theme-toggle-label"><span class="theme-mode-word">White</span><span>Mode</span></span>
             <span class="theme-toggle-pill">
-                <span class="theme-toggle-knob">☀</span>
-                <span class="theme-toggle-moon">◐</span>
+                <span class="theme-toggle-knob">
+                    <img class="mode-icon mode-icon-dark" src="images/mode-dark.png" alt="" aria-hidden="true">
+                    <img class="mode-icon mode-icon-light" src="images/sleep-mode.png" alt="" aria-hidden="true">
+                </span>
+                <span class="theme-toggle-moon" aria-hidden="true"></span>
             </span>
         </button>
 
@@ -65,7 +64,8 @@
     </div>
 
     <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open navigation">
-        <span></span><span></span><span></span>
+        <img class="hamburger-icon hamburger-icon-dark" src="images/hamburger-dark-mode.png" alt="" aria-hidden="true">
+        <img class="hamburger-icon hamburger-icon-light" src="images/hamburger-light-mode.png" alt="" aria-hidden="true">
     </button>
 
     <aside class="sidebar" id="sidebar">
@@ -75,9 +75,9 @@
             </a>
             <p class="availability"><span data-i18n="available">Available for automation, engineering, and product builds</span></p>
             <h1>Adewale ADEOGUN</h1>
-            <h2><span data-i18n="role">Software Engineer · RPA Developer · Data Scientist</span></h2>
+            <h2><span data-i18n="role">Software Engineer · Backend APIs · Automation</span></h2>
             <p>
-                <span data-i18n="introSidebar">I build resilient automation systems, production-grade workflows, responsive interfaces, and code-first tools that turn fragile manual processes into reliable engineered products.</span>
+                <span data-i18n="introSidebar">I build production software across healthcare and energy, from backend integrations and data processing to reliable automation and responsive interfaces.</span>
             </p>
         </div>
 
@@ -109,17 +109,21 @@
                     <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.5 8.2h4.1V24H.5V8.2Zm7.2 0h3.9v2.2h.1c.5-1 1.9-2.6 4.1-2.6 4.4 0 5.2 2.9 5.2 6.7V24h-4.1v-8.4c0-2 0-4.6-2.8-4.6s-3.2 2.2-3.2 4.4V24H7.7V8.2Z"></path>
                 </svg>
             </a>
+            <a class="social-icon orbit-icon resume-download" href="Adewale_Adeogun_Software_Engineer.pdf" download="Adewale_Adeogun_Software_Engineer.pdf" type="application/pdf" aria-label="Download Adewale Adeogun's resume" title="Download resume">
+                <img class="resume-icon resume-icon-dark" src="images/resume-download-dark.png" alt="" aria-hidden="true">
+                <img class="resume-icon resume-icon-light" src="images/resume-download-light.png" alt="" aria-hidden="true">
+            </a>
         </div>
     </aside>
 
     <main class="page-shell">
         <section class="hero-section section" id="intro">
-            <p class="eyebrow"><span data-i18n="heroEyebrow">Automation engineer who likes building things</span></p>
+            <p class="eyebrow"><span data-i18n="heroEyebrow">Software engineering / backend / automation</span></p>
             <h2>
-                <span data-i18n="heroTitle">I engineer automation, data, and web systems that stay reliable when real workflows get messy.</span>
+                <span data-i18n="heroTitle">I turn complex workflows into dependable software.</span>
             </h2>
             <p class="lead">
-                <span data-i18n="heroLead">A multidisciplinary Software Engineer, RPA Developer, and Data Scientist building resilient automation logic, responsive interfaces, back-end workflows, and hardware-to-software systems.</span>
+                <span data-i18n="heroLead">Software engineer with experience delivering backend integrations, data processing, web interfaces, and intelligent automation for healthcare, energy, and enterprise operations.</span>
             </p>
 
             <div class="hero-actions">
@@ -130,7 +134,7 @@
             <div class="metric-strip">
                 <article class="metric-card tilt-card">
                     <strong class="counter" data-target="4" data-suffix="+">0</strong>
-                    <span>Years intelligent automation</span>
+                    <span>Years of professional engineering</span>
                 </article>
                 <article class="metric-card tilt-card">
                     <strong class="counter" data-target="3" data-suffix="+">0</strong>
@@ -141,8 +145,8 @@
                     <span>Pages extracted and restructured in a large-scale web parsing project</span>
                 </article>
                 <article class="metric-card tilt-card">
-                    <strong class="counter" data-target="1000" data-suffix="+">0</strong>
-                    <span>Daily changes handled in AI/RPA scheduling workflows</span>
+                    <strong class="counter" data-target="100" data-suffix="+">0</strong>
+                    <span>Weekly manual hours removed across three healthcare workflows</span>
                 </article>
             </div>
         </section>
@@ -174,12 +178,12 @@
                             <div class="spotify-artwork-placeholder" id="spotifyArtworkPlaceholder" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" role="img"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.58 14.42a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.51-.59 11.66 1.34.35.21.46.67.25 1.03Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.55-11.97-1.39a.94.94 0 1 1-.55-1.79c4.37-1.33 9.8-.69 13.5 1.58.44.27.58.85.31 1.29Zm.13-3.4C14.31 7.45 7.93 7.24 4.24 8.36a1.12 1.12 0 1 1-.65-2.14c4.24-1.29 11.29-1.04 15.74 1.6a1.12 1.12 0 0 1-1.15 1.93Z"/></svg>
                             </div>
+                            <span class="spotify-equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
                         </div>
                         <div class="spotify-copy">
                             <div class="spotify-status-row">
                                 <span class="spotify-pulse" id="spotifyPulse" aria-hidden="true"></span>
                                 <span id="spotifyStatus">Checking Spotify...</span>
-                                <span class="spotify-equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
                             </div>
                             <h3 id="spotifyHeading">Connecting to Spotify</h3>
                             <p id="spotifyArtist">Music from my listening history will appear here.</p>
@@ -213,17 +217,26 @@
                     <span class="console-label">Motion / 03</span>
                     <div class="vibe-bars"><span></span><span></span><span></span><span></span><span></span></div>
                     <h3>Vibes</h3>
-                    <p>Turn on a subtle moving background for a more alive page.</p>
+                    <p>Cycle ambient lights and card motion.</p>
+                    <small class="vibe-current" id="vibeCurrent">Full ambient</small>
                     <span class="play-action" aria-hidden="true"></span>
                 </button>
 
-                <button class="play-card console-control tilt-card" id="focusCard" type="button">
-                    <span class="console-label">Reading / 04</span>
-                    <div class="map-line"></div>
-                    <h3>Focus Mode</h3>
-                    <p>Dim decorative noise and focus on readable content.</p>
-                    <span class="play-action" aria-hidden="true"></span>
-                </button>
+                <article class="play-card f1-card" id="f1Card">
+                    <h3 class="f1-card-title">touchecodes F1 Intelligence</h3>
+                    <div class="f1-folder-toggle">
+                        <span class="f1-folder">
+                            <span class="f1-folder-back" aria-hidden="true"></span>
+                            <button class="f1-folder-front" id="f1FolderToggle" type="button" aria-expanded="false" aria-controls="f1FolderDetails" aria-label="Open F1 Intelligence folder"><img src="images/f1.png" alt=""></button>
+                            <button class="f1-folder-sheet f1-folder-sheet-one" type="button" data-f1-view="calendar" tabindex="-1" aria-hidden="true">Calendar</button>
+                            <button class="f1-folder-sheet f1-folder-sheet-two" type="button" data-f1-view="form" tabindex="-1" aria-hidden="true">Driver form</button>
+                            <button class="f1-folder-sheet f1-folder-sheet-three" type="button" data-f1-view="lab" tabindex="-1" aria-hidden="true">Race Lab</button>
+                        </span>
+                        <span class="f1-folder-hint f1-folder-hint-mobile">Tap to explore</span>
+                        <span class="f1-folder-hint f1-folder-hint-desktop">Hover to explore</span>
+                    </div>
+                    <div class="f1-folder-details" id="f1FolderDetails" aria-hidden="true"><span>Calendar</span><span>Driver form</span><span>Race Lab</span></div>
+                </article>
 
                 <button class="play-card console-control tilt-card" id="contrastCard" type="button">
                     <span class="console-label">Display / 05</span>
@@ -233,6 +246,11 @@
                     <span class="play-action" aria-hidden="true"></span>
                 </button>
 
+            </div>
+            <div class="backend-notes" aria-label="How these live integrations work">
+                <p><strong>Spotify</strong><span>A Node.js API refreshes OAuth tokens securely, then serves the current track or latest listen.</span></p>
+                <p><strong>Live coding</strong><span>A Vercel function reads WakaTime heartbeats and returns the latest project and activity time.</span></p>
+                <p><strong>F1 Intelligence</strong><span>Cached Node.js APIs combine Jolpica standings with OpenF1 timing and telemetry to explain race pace.</span></p>
             </div>
         </section>
 
@@ -268,110 +286,113 @@
 
         <section class="about-section section" id="about">
             <div class="section-heading compact professional-heading">
+                <span class="section-command" aria-hidden="true">~/adewale/about.system</span>
                 <p class="eyebrow">About / Engineering philosophy</p>
-                <h2>I work across the stack, but reliability is the thread through everything.</h2>
+                <h2>Software that holds up beyond the demo.</h2>
             </div>
             <div class="about-showcase">
                 <article class="about-statement">
-                    <span class="about-mark" aria-hidden="true">A<span>/</span>A</span>
-                    <p>I am an automation engineer at the core, building across front-end interfaces, Python tooling, back-end services, data pipelines, RPA frameworks, and hardware logic.</p>
+                    <div class="about-profile">
+                        <span class="about-mark" aria-hidden="true">A<span>/</span>A</span>
+                        <div class="about-profile-info"><span>OPERATOR <strong>Adewale Adeogun</strong></span><span>ROLE <strong>Software Engineer</strong></span><span>BASE <strong>Lagos, Nigeria</strong></span></div>
+                    </div>
+                    <p>Engineering useful systems for the work that happens after launch.</p>
                     <div class="about-disciplines" aria-label="Engineering disciplines">
-                        <span>Automation</span><span>Web</span><span>Data</span><span>Systems</span>
+                        <span>Backend APIs</span><span>Automation</span><span>Web</span><span>Data</span>
                     </div>
                 </article>
-                <div class="principle-grid">
-                    <article><span>01</span><h3>Learn the system</h3><p>Understand the workflow, dependencies, and failure points before deciding what to automate.</p></article>
-                    <article><span>02</span><h3>Test the edges</h3><p>Design for messy production data, unstable interfaces, and the exceptions happy paths miss.</p></article>
-                    <article><span>03</span><h3>Engineer the recovery</h3><p>Build observable systems with validation gates, useful errors, and clear routes back to safety.</p></article>
-                    <article><span>04</span><h3>Improve the loop</h3><p>Learn, test, break, fix, and repeat until the workflow becomes dependable.</p></article>
-                </div>
+                <article class="about-terminal">
+                    <div class="workspace-bar"><span class="workspace-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>user_profile.log</span><span class="workspace-bar-end">~/about</span></div>
+                    <div class="about-terminal-body">
+                        <p class="terminal-prompt"><span>➜</span> whoami</p>
+                        <p class="terminal-output">I am a software engineer working across backend APIs, data processing, web interfaces, and automation. My work in healthcare and energy starts with the real workflow, then builds toward software people can trust in production.</p>
+                        <p class="terminal-prompt"><span>➜</span> cat approach.md</p>
+                        <p class="terminal-output">Understand the workflow. Build for real users. Plan for failure. Measure what improves.</p>
+                        <span class="terminal-cursor" aria-hidden="true">_</span>
+                    </div>
+                </article>
+            </div>
+            <div class="principle-grid">
+                <article><span>01</span><h3>Understand the workflow</h3><p>Map the data, dependencies, people, and exceptions before choosing the implementation.</p></article>
+                <article><span>02</span><h3>Build useful interfaces</h3><p>Connect APIs, data stores, and responsive UI around the work users actually need to do.</p></article>
+                <article><span>03</span><h3>Plan for failure</h3><p>Use validation, exception handling, tests, and clear runbooks to support live operations.</p></article>
+                <article><span>04</span><h3>Measure the result</h3><p>Track time saved, accuracy improved, and the cost of maintaining the system.</p></article>
             </div>
         </section>
 
         <section class="experience-section section" id="experience">
             <div class="section-heading compact professional-heading">
+                <span class="section-command" aria-hidden="true">$ git log --work --oneline</span>
                 <p class="eyebrow">Experience / Production practice</p>
-                <h2>Built for the realities of production.</h2>
+                <h2>Production work, measured in outcomes.</h2>
             </div>
 
             <div class="experience-ledger">
                 <article class="timeline-item experience-card tilt-card">
                     <div class="experience-rail"><strong>01</strong><span></span></div>
                     <div class="experience-body">
-                    <div class="experience-topline"><div class="timeline-meta">Enterprise automation</div><div class="experience-logos" aria-label="Tools"><img src="images/uipath.svg" alt="UiPath"><img src="images/dotnet.svg" alt=".NET"><img src="images/sql.svg" alt="SQL"></div></div>
-                    <h3>Senior AI & RPA Engineering</h3>
-                    <p>
-                        Built unattended production automations using UiPath, Orchestrator queues, assets, triggers, credentials, selectors, APIs, Excel, email, databases, and reusable frameworks.
-                    </p>
-                    <div class="tag-row">
-                        <span>UiPath</span><span>Orchestrator</span><span>REFramework</span><span>VB.NET</span>
-                    </div>
+                    <div class="experience-topline"><div class="timeline-meta">Deskstones Limited · Leeds, UK · Oct 2023–present</div><div class="experience-logos" aria-label="Tools"><img src="images/uipath.svg" alt="UiPath"><img src="images/python.svg" alt="Python"><img src="images/js.svg" alt="JavaScript"></div></div>
+                    <h3>Senior RPA Developer</h3>
+                    <p>Promoted from RPA Developer in 2025. I engineer and support unattended healthcare and enterprise workflows using UiPath, Python, JavaScript, VB.NET, REST APIs, Selenium, and Orchestrator.</p>
+                    <div class="experience-impact"><span><strong>~50h</strong>weekly visit-confirmation effort removed</span><span><strong>~40h</strong>weekly invoice-adjustment effort saved</span><span><strong>60%</strong>faster payroll processing</span></div>
+                    <div class="tag-row"><span>UiPath</span><span>Python</span><span>REST APIs</span><span>Orchestrator</span></div>
                     </div>
                 </article>
 
                 <article class="timeline-item experience-card tilt-card">
                     <div class="experience-rail"><strong>02</strong><span></span></div>
                     <div class="experience-body">
-                    <div class="experience-topline"><div class="timeline-meta">Healthcare RCM</div><div class="experience-logos" aria-label="Tools"><img src="images/uipath.svg" alt="UiPath"><img src="images/database.svg" alt="Data systems"><img src="images/gear.svg" alt="Automation"></div></div>
-                    <h3>Production eBilling and EVV automation</h3>
-                    <p>
-                        Engineered automation logic for live healthcare revenue-cycle workflows, including claims processing, rolling date windows, selector stability, and zero-fail validation gates.
-                    </p>
-                    <div class="tag-row">
-                        <span>HHAeXchange</span><span>RCM</span><span>Selectors</span><span>Date logic</span>
-                    </div>
+                    <div class="experience-topline"><div class="timeline-meta">TotalEnergies E&amp;P Limited · Lagos, Nigeria · Jun 2022–Oct 2023</div><div class="experience-logos" aria-label="Tools"><img src="images/python.svg" alt="Python"><img src="images/database.svg" alt="Data systems"><img src="images/gear.svg" alt="Automation"></div></div>
+                    <h3>Software Engineer</h3>
+                    <p>Built automation and data-processing tools for subsea operations, bringing sensor inspections, maintenance logs, and third-party reports into tested workflows for engineers and analysts.</p>
+                    <div class="experience-impact"><span><strong>65%</strong>less manual data entry</span><span><strong>80%</strong>higher data accuracy</span><span><strong>30%</strong>development efficiency gain through reuse</span></div>
+                    <div class="tag-row"><span>Data processing</span><span>Reusable libraries</span><span>Technical documentation</span></div>
                     </div>
                 </article>
 
-                <article class="timeline-item experience-card tilt-card">
-                    <div class="experience-rail"><strong>03</strong><span></span></div>
-                    <div class="experience-body">
-                    <div class="experience-topline"><div class="timeline-meta">API-first engineering</div><div class="experience-logos" aria-label="Tools"><img src="images/dotnet.svg" alt=".NET"><img src="images/python.svg" alt="Python"><img src="images/js.svg" alt="JavaScript"></div></div>
-                    <h3>Network-layer automation and web-call replication</h3>
-                    <p>
-                        Replaced slow UI selector flows with code-first request logic that mimics browser network calls while preserving cookies, hidden fields, sessions, and server validation paths.
-                    </p>
-                    <div class="tag-row">
-                        <span>HTTP</span><span>Cookies</span><span>.NET</span><span>AI-assisted development</span>
-                    </div>
-                    </div>
-                </article>
             </div>
         </section>
 
         <section class="projects-section section" id="projects">
             <div class="section-heading compact">
+                <span class="section-command" aria-hidden="true">$ ls ~/selected-work</span>
                 <p class="eyebrow">Selected work / Case-file index</p>
-                <h2>Systems built where software, automation, data, and physical engineering meet.</h2>
-                <p>Filter the archive, then open any case file for the engineering context behind it.</p>
+                <h2>Selected software and automation work.</h2>
+                <p>Explore prototypes, production workflows, data tools, and hardware systems from my engineering practice.</p>
             </div>
 
-            <div class="project-filter">
+            <div class="project-workspace">
+            <aside class="project-explorer" aria-label="Project categories">
+                <div class="workspace-bar"><span class="workspace-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Explorer</span></div>
+                <p class="project-explorer-title">Repositories <strong>05</strong></p>
+                <div class="project-filter">
                 <button class="active" data-filter="all" type="button">All</button>
                 <button data-filter="automation" type="button">Automation</button>
                 <button data-filter="web" type="button">Web</button>
                 <button data-filter="data" type="button">Data</button>
                 <button data-filter="hardware" type="button">Hardware</button>
-            </div>
+                </div>
+                <p class="project-explorer-note">Select a category to filter the work.</p>
+            </aside>
 
             <div class="project-grid">
                 <article class="project-card tilt-card" data-category="web data">
                     <div class="project-card-top"><span class="project-number">01 / PLATFORM</span><div class="project-icon"><img src="images/code.svg" alt=""></div></div>
-                    <h3>Front-End & Full-Stack Educational Coding Platform</h3>
+                    <h3>Educational Coding Platform</h3>
                     <p>
-                        Conceptualized a gamified platform for teaching programming concepts with responsive UI, FastAPI routes, SQLite schema planning, and student progress tracking.
+                        Prototyped a gamified learning platform with responsive UI, FastAPI routes, SQLite3 schema planning, code-feedback workflows, and student progress tracking.
                     </p>
                     <div class="tag-row"><span>FastAPI</span><span>SQLite3</span><span>UI Architecture</span></div>
                     <button class="project-more" type="button">Read more</button>
                 </article>
 
                 <article class="project-card tilt-card" data-category="automation">
-                    <div class="project-card-top"><span class="project-number">02 / AUTOMATION</span><div class="project-icon"><img src="images/gear.svg" alt=""></div></div>
-                    <h3>Healthcare Revenue Cycle Management Automation</h3>
+                    <div class="project-card-top"><span class="project-number">02 / PRODUCTION</span><div class="project-icon"><img src="images/gear.svg" alt=""></div></div>
+                    <h3>Healthcare Workflow Automation</h3>
                     <p>
-                        Built production-level unattended bots for eBilling claims processing with dynamic claims counts, 14-day cycle tracking, and autonomous rolling reporting dates.
+                        Delivered unattended visit-confirmation, invoice-adjustment, and rejected-claims workflows, cutting recurring manual work by roughly 100 hours per week across those processes.
                     </p>
-                    <div class="tag-row"><span>UiPath</span><span>VB.NET</span><span>RCM</span></div>
+                    <div class="tag-row"><span>UiPath</span><span>Python</span><span>REST APIs</span></div>
                     <button class="project-more" type="button">Read more</button>
                 </article>
 
@@ -379,7 +400,7 @@
                     <div class="project-card-top"><span class="project-number">03 / DATA</span><div class="project-icon"><img src="images/database.svg" alt=""></div></div>
                     <h3>Large-Scale Web Extraction & Code Parsing</h3>
                     <p>
-                        Extracted and restructured a 25-page official platform by ingesting raw HTML, removing heavy layout structures, and generating clean standalone files.
+                        Built a Python and JavaScript workflow to ingest and restructure a 25-page web platform, remove layout-heavy markup, and generate clean standalone files.
                     </p>
                     <div class="tag-row"><span>Python</span><span>Parsing</span><span>JavaScript</span></div>
                     <button class="project-more" type="button">Read more</button>
@@ -389,7 +410,7 @@
                     <div class="project-card-top"><span class="project-number">04 / HARDWARE</span><div class="project-icon"><img src="images/bolt.svg" alt=""></div></div>
                     <h3>Automated Electric Groundnut Roaster</h3>
                     <p>
-                        Designed a physical hardware machine with software-controlled heating logic, electrical routing, custom sensor ports, and automated thermal control.
+                        Developed C++ and microcontroller control logic for a roasting system integrating electrical heating, sensor inputs, thermal behaviour, and hardware operation.
                     </p>
                     <div class="tag-row"><span>C++</span><span>Microcontrollers</span><span>Thermal control</span></div>
                     <button class="project-more" type="button">Read more</button>
@@ -399,58 +420,72 @@
                     <div class="project-card-top"><span class="project-number">05 / INTERFACE</span><div class="project-icon"><img src="images/code.svg" alt=""></div></div>
                     <h3>UI Replication & Front-End Systems</h3>
                     <p>
-                        Built responsive static sites and interaction systems including State House pages, Carbon-style pages, FitMaker Figma-to-code, toast/modals, search, translate, and hamburger logic.
+                        Built responsive Figma-to-code interfaces and stateful interactions including navigation, search, modals, mobile menus, and translation controls.
                     </p>
                     <div class="tag-row"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                     <button class="project-more" type="button">Read more</button>
                 </article>
 
-                <article class="project-card tilt-card" data-category="automation web">
-                    <div class="project-card-top"><span class="project-number">06 / WORKFLOW</span><div class="project-icon"><img src="images/gear.svg" alt=""></div></div>
-                    <h3>Agent Bob API Workflow Recorder</h3>
-                    <p>
-                        A Chrome extension and desktop-app concept for recording website API calls, grouping them into workflow steps, and generating RPA-ready prompts and code outputs.
-                    </p>
-                    <div class="tag-row"><span>Chrome Extension</span><span>RPA</span><span>Workflow Capture</span></div>
-                    <button class="project-more" type="button">Read more</button>
-                </article>
+            </div>
             </div>
         </section>
 
         <section class="skills-section section" id="skills">
-            <div class="section-label">Stack</div>
+            <div class="section-heading compact">
+                <span class="section-command" aria-hidden="true">$ cat skills.json</span>
+                <p class="eyebrow">Stack / Working tools</p>
+                <h2>Tools I build with.</h2>
+            </div>
 
             <div class="stack-grid">
                 <article class="stack-card tilt-card">
-                    <h3>Front-End & Web Architecture</h3>
-                    <p>HTML5, CSS, JavaScript, responsive layouts, mobile-first UI, DOM debugging, navigation logic, clean CSS/JS separation, Figma-to-code builds.</p>
+                    <h3>Backend & APIs</h3>
+                    <p>Python, C#, VB.NET, FastAPI, ASP.NET, Entity Framework, REST/HTTP APIs, JSON, SQL, and SQLite3.</p>
                 </article>
 
                 <article class="stack-card tilt-card">
-                    <h3>Python & Data Science</h3>
-                    <p>Python automation, web scraping, parsing, XLSX generation, Power BI, SPSS, data pipelines, ML concepts, algorithmic logic, risk parameters.</p>
+                    <h3>Web & Interfaces</h3>
+                    <p>JavaScript, HTML5, CSS3, responsive layouts, Figma-to-code, reusable components, DOM interactions, and accessible controls.</p>
                 </article>
 
                 <article class="stack-card tilt-card">
-                    <h3>RPA & Back-End</h3>
-                    <p>UiPath, Blue Prism, Power Automate, VB.NET, C#, Java, SQL, FastAPI, ASP.NET Web APIs, SQLite3, Entity Framework, .NET MAUI.</p>
+                    <h3>Automation & Data</h3>
+                    <p>UiPath, Orchestrator, REFramework, Blue Prism, Power Automate, Selenium, Power BI, SPSS, data processing, and reporting.</p>
                 </article>
 
                 <article class="stack-card tilt-card">
-                    <h3>Systems & Game Development</h3>
-                    <p>C++, UE5, microcontroller logic, hardware-to-software integration, sensor ports, AC resistive heating control, and physical system automation.</p>
+                    <h3>Cloud & Systems</h3>
+                    <p>AWS, Azure, Git/GitHub, SharePoint, Jira, C++, microcontrollers, and hardware/software integration.</p>
                 </article>
+            </div>
+            <div class="credentials-strip" aria-label="Education and certifications">
+                <p><strong>B.Sc. Mechanical Engineering</strong><span>University of Lagos · 2024</span></p>
+                <p><strong>IIT Mechatronics Programme</strong><span>4th overall best · 2025</span></p>
+                <p><strong>UiPath Automation Developer Professional</strong><span>Certification and continuing training</span></p>
             </div>
         </section>
 
         <section class="contact-section section" id="contact">
             <div class="contact-card">
                 <div>
+                    <span class="section-command" aria-hidden="true">$ ./connect.sh</span>
                     <p class="eyebrow">Contact</p>
                     <h2>Let’s build something reliable.</h2>
                     <p>
-                        I’m interested in automation systems, AI-assisted development, RPA tooling, front-end products, APIs, and hardware/software ideas that need disciplined engineering.
+                        I’m interested in backend services, API integrations, production automation, data tools, and web products that need thoughtful engineering.
                     </p>
+                </div>
+
+                <div class="contact-code">
+                    <div class="workspace-bar"><span class="workspace-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>contact_info.json</span></div>
+                    <div class="contact-code-body">
+                        <span>{</span>
+                        <span>  <em>"name"</em>: <strong>"Adewale Adeogun"</strong>,</span>
+                        <span>  <em>"focus"</em>: <strong>"Software engineering"</strong>,</span>
+                        <span>  <em>"email"</em>: <a href="mailto:adewaleeadeogun@gmail.com">"adewaleeadeogun@gmail.com"</a>,</span>
+                        <span>  <em>"github"</em>: <a href="https://github.com/a-adewale" target="_blank" rel="noopener noreferrer">"@a-adewale"</a></span>
+                        <span>}</span>
+                    </div>
                 </div>
 
                 <div class="timezone-grid">
@@ -495,7 +530,25 @@
 
     <div class="toast-stack" id="toastStack" aria-live="polite"></div>
 
+    <dialog class="f1-dialog" id="f1Dialog" aria-labelledby="f1DialogTitle">
+        <div class="f1-dialog-shell">
+            <button class="f1-dialog-close" id="f1DialogClose" type="button" aria-label="Close F1 Intelligence">×</button>
+            <p class="f1-dialog-kicker">touchecodes / F1 Intelligence</p>
+            <h2 id="f1DialogTitle">Race calendar</h2>
+            <nav class="f1-dialog-nav" aria-label="F1 Intelligence views">
+                <button type="button" data-f1-tab="calendar">Calendar</button>
+                <button type="button" data-f1-tab="form">Driver form</button>
+                <button type="button" data-f1-tab="lab">Race Lab</button>
+            </nav>
+            <div class="f1-dialog-content" id="f1DialogContent" aria-live="polite"></div>
+            <p class="f1-dialog-updated" id="f1DialogUpdated"></p>
+            <p class="f1-dialog-source" id="f1DialogSource">Data: <a href="https://github.com/jolpica/jolpica-f1" target="_blank" rel="noopener noreferrer">Jolpica F1</a> · <a href="https://openf1.org/" target="_blank" rel="noopener noreferrer">OpenF1</a> · Flags: <a href="https://github.com/hampusborgos/country-flags" target="_blank" rel="noopener noreferrer">country-flags</a> · Independent project</p>
+        </div>
+    </dialog>
+
     <script src="script.js"></script>
+    <script src="f1-lab.js"></script>
+    <script src="f1-latest.js"></script>
     <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

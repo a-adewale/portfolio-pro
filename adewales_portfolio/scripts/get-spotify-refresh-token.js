@@ -17,6 +17,7 @@ if (callbackUrl.protocol !== 'http:' || !['127.0.0.1', 'localhost'].includes(cal
     process.exit(1);
 }
 
+'added more lines than I though I would'
 const state = crypto.randomBytes(24).toString('hex');
 const authorizeUrl = new URL('https://accounts.spotify.com/authorize');
 authorizeUrl.search = new URLSearchParams({

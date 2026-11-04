@@ -39,7 +39,8 @@ export default async function handler(request, response) {
         const url = new URL(HEARTBEATS_URL);
         url.searchParams.set('date', lagosDate());
         const apiResponse = await fetch(url, {
-            headers: { Authorization: `Bearer ${accessToken}`, Accept: 'application/json' }
+            headers: { Authorization: `Bearer ${accessToken}`, Accept: 'application/json' },
+            cache: 'no-store'
         });
 
         if (!apiResponse.ok) throw new Error(`WakaTime request failed (${apiResponse.status})`);
@@ -47,7 +48,7 @@ export default async function handler(request, response) {
         const latest = [...(payload.data || [])].sort((a, b) => b.time - a.time)[0];
 
         if (!latest) {
-            response.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=120');
+            response.setHeader('Cache-Control', 'no-store');
             return sendJson(response, 200, {
                 isActive: false,
                 project: null,
@@ -59,9 +60,9 @@ export default async function handler(request, response) {
         }
 
         const ageSeconds = Date.now() / 1000 - latest.time;
-        response.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=120');
+        response.setHeader('Cache-Control', 'no-store');
         return sendJson(response, 200, {
-            isActive: ageSeconds <= 15 * 60,
+            isActive: ageSeconds <= 5 * 60,
             project: latest.project || null,
             language: latest.language || null,
             category: latest.category || null,

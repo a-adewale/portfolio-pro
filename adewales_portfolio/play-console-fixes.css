@@ -1,0 +1,1229 @@
+/* Loaded after the legacy stylesheet so these layout rules have one clear owner. */
+body {
+    background: var(--bg) !important;
+    background-attachment: scroll !important;
+    isolation: isolate;
+}
+
+.ambient {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: .5;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 52%, transparent), transparent 72%) !important;
+}
+
+.ambient-two {
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 52%, transparent), transparent 72%) !important;
+}
+
+.console-grid .console-intro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 6px;
+}
+
+.console-grid .console-intro > div {
+    display: contents !important;
+}
+
+.console-grid .console-intro .console-overline,
+.console-grid .console-intro #wakatimeHeading,
+.console-grid .console-intro .wakatime-detail {
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.console-grid .console-intro #wakatimeHeading {
+    max-width: 100%;
+    min-height: 0 !important;
+    align-self: flex-start !important;
+    overflow-wrap: anywhere;
+    padding: 3px 0 4px;
+    line-height: 1.24 !important;
+}
+
+.console-grid .console-intro .console-overline,
+.console-grid .console-intro .wakatime-detail {
+    line-height: 1.35 !important;
+}
+
+.console-grid .console-spotify .spotify-link {
+    margin: auto 0 0 auto !important;
+    align-self: flex-end !important;
+    justify-self: end !important;
+    text-align: right !important;
+}
+
+.console-grid .console-spotify-compact {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    align-items: stretch;
+    row-gap: 10px;
+}
+
+.console-grid .console-spotify-compact > .console-label {
+    grid-row: 1;
+}
+
+.console-grid .console-spotify-compact .spotify-main {
+    display: grid !important;
+    grid-row: 2;
+    grid-template-columns: minmax(0, 1fr) 72px;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.console-grid .console-spotify-compact .spotify-copy {
+    display: flex !important;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+    text-align: left;
+}
+
+.console-grid .console-spotify-compact .spotify-status-row {
+    display: none !important;
+}
+
+.console-grid .console-spotify-compact .spotify-copy h3,
+.console-grid .console-spotify-compact .spotify-copy p {
+    margin: 0 !important;
+    max-width: 100%;
+    overflow: hidden !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+}
+
+.console-grid .console-spotify-compact .spotify-copy h3 {
+    -webkit-line-clamp: 3;
+}
+
+.console-grid .console-spotify-compact .spotify-artwork-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    width: 72px !important;
+    height: 72px !important;
+    margin: 0 !important;
+    justify-self: end;
+    border: 2px solid #1ed760;
+    box-shadow: 0 0 0 3px rgba(30, 215, 96, .16), 0 10px 26px rgba(0, 0, 0, .24);
+}
+
+.console-grid .console-spotify-compact.is-playing .spotify-artwork-wrap {
+    box-shadow: 0 0 0 3px rgba(30, 215, 96, .3), 0 0 18px rgba(30, 215, 96, .24);
+}
+
+.console-grid .console-spotify-compact .spotify-artwork-wrap .spotify-equalizer {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    z-index: 2;
+    height: 21px;
+    margin: 0;
+    padding: 3px 5px;
+    border-radius: 6px;
+    background: rgba(5, 18, 10, .82);
+}
+
+.console-grid .console-spotify-compact .spotify-artwork,
+.console-grid .console-spotify-compact .spotify-artwork-placeholder {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+html body .console-grid .console-spotify-compact .spotify-link {
+    grid-row: 3;
+    margin: 0 0 0 auto !important;
+    align-self: end !important;
+    justify-self: end !important;
+}
+
+html body .console-grid .console-intro a {
+    margin: 0 0 0 auto !important;
+    align-self: flex-end !important;
+    text-align: right !important;
+}
+
+@media (max-width: 980px) {
+    html body .top-right-controls {
+        transition: top .34s ease, left .34s ease, right .34s ease, width .34s ease, opacity .28s ease, transform .28s ease, filter .28s ease !important;
+    }
+
+    html body.mobile-brand-away .top-right-controls {
+        position: fixed !important;
+        top: 12px !important;
+        left: 12px !important;
+        right: 68px !important;
+        width: calc(100% - 80px) !important;
+    }
+
+    html body.mobile-brand-away .mobile-brand {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(-14px) scale(.96) !important;
+        pointer-events: none !important;
+    }
+
+    html body.mobile-controls-dim .top-right-controls {
+        opacity: .04 !important;
+        visibility: visible !important;
+        transform: translateY(-10px) scale(.96) !important;
+        filter: blur(1.1px) saturate(.65) !important;
+        pointer-events: none !important;
+    }
+
+    html body:not(.mobile-controls-dim) .top-right-controls {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        filter: none !important;
+        pointer-events: auto !important;
+    }
+}
+
+
+@media (max-width: 560px) {
+    .console-grid .console-spotify-compact .spotify-main {
+        grid-template-columns: minmax(0, 1fr) 108px;
+    }
+
+    .console-grid .console-spotify-compact .spotify-artwork-wrap {
+        width: 108px !important;
+        height: 108px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .console-grid .console-spotify-compact .spotify-main {
+        grid-template-columns: minmax(0, 1fr) 96px;
+    }
+
+    .console-grid .console-spotify-compact .spotify-artwork-wrap {
+        width: 96px !important;
+        height: 96px !important;
+    }
+}
+
+/* The F1 lab opens like a small folder without changing the console grid height. */
+.console-grid .f1-card {
+    padding: 16px !important;
+}
+
+.console-grid .f1-card .f1-folder-toggle {
+    position: relative;
+    display: block;
+    width: 164px;
+    height: 108px;
+    margin: 7px 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    perspective: 320px;
+}
+
+.f1-folder-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.f1-folder {
+    position: relative;
+    display: block;
+    width: 124px;
+    height: 70px;
+    transform: scale(1.28);
+    transform-origin: top left;
+    filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .2));
+}
+
+.f1-folder-hint {
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    color: var(--muted);
+    font-size: .64rem;
+    font-weight: 750;
+    letter-spacing: .02em;
+}
+
+.f1-folder-hint-mobile { display: none; }
+
+.f1-folder-back,
+.f1-folder-front,
+.f1-folder-sheet {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+}
+
+.f1-folder-back {
+    inset: 13px 4px 4px;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--accent) 34%, var(--panel));
+}
+
+.f1-folder-back::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -1px;
+    width: 46px;
+    height: 15px;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+    border-bottom: 0;
+    border-radius: 7px 7px 0 0;
+    background: inherit;
+}
+
+.f1-folder-sheet {
+    left: 17px;
+    bottom: 15px;
+    width: 88px;
+    height: 42px;
+    padding: 7px 8px;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    color: var(--muted);
+    background: var(--panel);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .1em;
+    text-align: left;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1);
+}
+
+.f1-folder-sheet-one { transform: rotate(-5deg); }
+.f1-folder-sheet-two { transform: rotate(5deg); }
+
+.f1-folder-front {
+    inset: auto 0 2px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--accent) 68%, var(--line));
+    border-radius: 7px 7px 9px 9px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 48%, var(--panel)), color-mix(in srgb, var(--accent) 25%, var(--panel)));
+    transform-origin: bottom center;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1), box-shadow .45s ease;
+}
+
+.f1-folder-front img {
+    width: 75px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.f1-card:not(.folder-open) .f1-folder-toggle:hover .f1-folder-sheet-one,
+.f1-card:not(.folder-open) .f1-folder-toggle:focus-visible .f1-folder-sheet-one {
+    transform: translateY(-5px) rotate(-7deg);
+}
+
+.f1-card:not(.folder-open) .f1-folder-toggle:hover .f1-folder-front,
+.f1-card:not(.folder-open) .f1-folder-toggle:focus-visible .f1-folder-front {
+    transform: rotateX(-9deg);
+}
+
+.f1-card.folder-open .f1-folder-sheet-one { transform: translate(-4px, -16px) rotate(-10deg); }
+.f1-card.folder-open .f1-folder-sheet-two { transform: translate(4px, -21px) rotate(9deg); }
+.f1-card.folder-open .f1-folder-front {
+    transform: rotateX(-25deg) translateY(2px);
+    box-shadow: 0 9px 18px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.console-grid .f1-card h3 { margin: 3px 0 2px !important; }
+.f1-card .f1-card-description {
+    max-height: 64px;
+    overflow: hidden;
+    transition: max-height .35s ease, opacity .25s ease;
+}
+
+.f1-card.folder-open .f1-card-description {
+    max-height: 0;
+    opacity: 0;
+}
+
+.f1-folder-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height .35s ease, opacity .25s ease, transform .35s ease;
+}
+
+.f1-folder-details span {
+    padding: 4px 6px;
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+    border-radius: 5px;
+    color: var(--text);
+    font-size: .66rem;
+    font-weight: 700;
+}
+
+.f1-card.folder-open .f1-folder-details {
+    max-height: 50px;
+    opacity: 1;
+    transform: none;
+}
+
+@media (min-width: 981px) {
+    html body .top-right-controls {
+        grid-template-columns: 160px 160px !important;
+        padding: 4px;
+    }
+
+    html body .top-right-controls .theme-toggle-card,
+    html body .top-right-controls .language-selector,
+    html body .top-right-controls .language-trigger {
+        width: 160px !important;
+        min-width: 160px !important;
+        height: 46px !important;
+        min-height: 46px !important;
+    }
+
+    html body.mobile-controls-dim .top-right-controls {
+        opacity: .035 !important;
+        filter: blur(1.5px) saturate(.55) !important;
+    }
+}
+
+@media (max-width: 980px) {
+    .f1-folder-hint-mobile { display: block; }
+    .f1-folder-hint-desktop { display: none; }
+
+    html body .top-right-controls {
+        position: fixed !important;
+        top: 70px !important;
+        left: 12px !important;
+        right: 12px !important;
+        width: auto !important;
+        height: 52px !important;
+        padding: 4px !important;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+        align-items: center !important;
+        gap: 6px !important;
+        border-radius: 999px !important;
+        box-sizing: border-box !important;
+        transition: top .42s cubic-bezier(.2, .8, .2, 1), right .42s cubic-bezier(.2, .8, .2, 1), opacity .28s ease, transform .42s cubic-bezier(.2, .8, .2, 1), filter .28s ease !important;
+    }
+
+    html body .top-right-controls .theme-toggle-card,
+    html body .top-right-controls .language-selector,
+    html body .top-right-controls .language-trigger {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        border-radius: 999px !important;
+        box-sizing: border-box !important;
+        align-self: center !important;
+    }
+
+    html body.mobile-brand-away .top-right-controls {
+        top: 12px !important;
+        left: 12px !important;
+        right: 68px !important;
+        width: auto !important;
+    }
+
+    html body.mobile-controls-dim .top-right-controls {
+        transform: translateY(-4px) scale(.99) !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .console-grid .f1-card .f1-folder-toggle {
+        width: 184px;
+        height: 119px;
+    }
+
+    .f1-folder { transform: scale(1.44); }
+
+    html body.mobile-brand-away .top-right-controls .theme-toggle-card,
+    html body.mobile-brand-away .top-right-controls .language-trigger {
+        padding-inline: 6px !important;
+    }
+
+    html body.mobile-brand-away .top-right-controls .theme-toggle-label {
+        display: block !important;
+        min-width: 0;
+        font-size: 10.5px !important;
+        line-height: 1.08;
+    }
+
+    html body.mobile-brand-away .top-right-controls .theme-toggle-pill {
+        width: 56px !important;
+        min-width: 56px !important;
+        max-width: 56px !important;
+        flex-basis: 56px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 3px !important;
+        gap: 2px !important;
+    }
+
+    html body.mobile-brand-away .top-right-controls .theme-toggle-knob,
+    html body.mobile-brand-away .top-right-controls .theme-toggle-moon {
+        width: 24px !important;
+        min-width: 24px !important;
+        max-width: 24px !important;
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+        flex-basis: 24px !important;
+    }
+
+    html[data-theme="white"] body.mobile-brand-away .top-right-controls .theme-toggle-knob {
+        transform: translateX(26px) !important;
+    }
+
+    html[data-theme="white"] body.mobile-brand-away .top-right-controls .theme-toggle-moon {
+        transform: translateX(-26px) !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .f1-folder-sheet,
+    .f1-folder-front,
+    .f1-folder-details,
+    html body .top-right-controls {
+        transition-duration: .01ms !important;
+    }
+}
+
+/* The F1 tile is the folder; its front opens to reveal three smaller folders. */
+.console-grid .f1-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 0 !important;
+    background: color-mix(in srgb, var(--accent) 18%, var(--panel)) !important;
+}
+
+.console-grid .f1-card .f1-card-title {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+    z-index: 5;
+    margin: 0 !important;
+    color: var(--text);
+    font-size: clamp(.98rem, 1.3vw, 1.2rem) !important;
+    line-height: 1.22 !important;
+    pointer-events: none;
+}
+
+.console-grid .f1-card .f1-folder-toggle {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: inherit;
+}
+
+.console-grid .f1-card .f1-folder-tab {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 18px;
+    width: 74px;
+    height: 16px;
+    border-radius: 0 0 9px 9px;
+    background: color-mix(in srgb, var(--accent) 48%, var(--panel));
+}
+
+.console-grid .f1-card .f1-folder-front {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+    border-radius: inherit;
+    background: linear-gradient(150deg, color-mix(in srgb, var(--accent) 34%, var(--panel)), color-mix(in srgb, var(--accent) 14%, var(--panel)));
+    box-shadow: inset 0 1px color-mix(in srgb, var(--accent) 55%, transparent);
+    transform-origin: bottom center;
+    transition: transform .55s cubic-bezier(.2, .8, .2, 1), box-shadow .55s ease;
+}
+
+.console-grid .f1-card .f1-folder-front img {
+    position: absolute;
+    top: 39%;
+    left: 18px;
+    width: 118px;
+    height: 57px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.console-grid .f1-card .f1-folder-hint {
+    left: 18px;
+    bottom: 16px;
+    font-size: .7rem;
+    color: var(--text);
+    opacity: .7;
+}
+
+.console-grid .f1-card .f1-folder-details {
+    position: absolute;
+    top: 77px;
+    left: 16px;
+    right: 16px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    max-height: none;
+    overflow: visible;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity .3s ease, transform .45s ease;
+    pointer-events: none;
+}
+
+.console-grid .f1-card .f1-mini-folder {
+    position: relative;
+    min-width: 0;
+    height: 59px;
+    display: grid;
+    place-items: end center;
+    padding: 8px 3px;
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line));
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--accent) 19%, var(--panel-2));
+    color: var(--text);
+    font-size: .67rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.console-grid .f1-card .f1-mini-folder::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -1px;
+    width: 37%;
+    height: 9px;
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line));
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
+    background: inherit;
+}
+
+.console-grid .f1-card.folder-open .f1-folder-front {
+    transform: translateY(76%) rotateX(-8deg);
+    box-shadow: 0 -12px 22px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-details {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 560px) {
+    .console-grid .f1-card .f1-card-title {
+        font-size: 1.25rem !important;
+    }
+
+    .console-grid .f1-card .f1-folder-front img {
+        width: 148px;
+        height: 70px;
+    }
+
+    .console-grid .f1-card .f1-folder-details {
+        top: 92px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .console-grid .f1-card .f1-folder-front,
+    .console-grid .f1-card .f1-folder-details {
+        transition-duration: .01ms !important;
+    }
+}
+
+/* Keep the original layered folder shape and scale it to the F1 tile. */
+.console-grid .f1-card {
+    padding: 16px !important;
+    background: var(--panel-2) !important;
+}
+
+.console-grid .f1-card .f1-card-title {
+    top: 14px;
+    left: 16px;
+    right: 16px;
+}
+
+.console-grid .f1-card .f1-folder-toggle {
+    inset: 48px 12px 9px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+.console-grid .f1-card .f1-folder {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: calc(100% - 18px);
+    transform: none;
+    transform-origin: center;
+}
+
+.console-grid .f1-card .f1-folder-back {
+    inset: 20px 5px 4px;
+    border-radius: 11px;
+}
+
+.console-grid .f1-card .f1-folder-back::before {
+    width: 34%;
+    height: 17px;
+    top: -12px;
+    border-radius: 8px 8px 0 0;
+}
+
+.console-grid .f1-card .f1-folder-sheet {
+    left: 15%;
+    bottom: 24%;
+    width: 70%;
+    height: 58%;
+    padding: 8px 10px;
+    border-radius: 7px 7px 4px 4px;
+    font-size: .68rem;
+    background: color-mix(in srgb, var(--accent) 12%, var(--panel));
+}
+
+.console-grid .f1-card .f1-folder-sheet::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -1px;
+    width: 35%;
+    height: 9px;
+    border: 1px solid var(--line);
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
+    background: inherit;
+}
+
+.console-grid .f1-card .f1-folder-sheet-one { transform: translateX(-11%) rotate(-7deg); }
+.console-grid .f1-card .f1-folder-sheet-two { transform: translateX(0) rotate(0); }
+.console-grid .f1-card .f1-folder-sheet-three { transform: translateX(11%) rotate(7deg); }
+
+.console-grid .f1-card .f1-folder-front {
+    inset: auto 0 2px;
+    width: 100%;
+    height: 61%;
+    display: grid;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--accent) 68%, var(--line));
+    border-radius: 9px 9px 12px 12px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 48%, var(--panel)), color-mix(in srgb, var(--accent) 25%, var(--panel)));
+}
+
+.console-grid .f1-card .f1-folder-front img {
+    position: static;
+    width: 44%;
+    height: 52%;
+    object-position: center;
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-one { transform: translate(-13%, -17%) rotate(-10deg); }
+.console-grid .f1-card.folder-open .f1-folder-sheet-two { transform: translateY(-24%) rotate(0); }
+.console-grid .f1-card.folder-open .f1-folder-sheet-three { transform: translate(13%, -17%) rotate(10deg); }
+.console-grid .f1-card.folder-open .f1-folder-front {
+    transform: rotateX(-24deg) translateY(3px);
+}
+
+.console-grid .f1-card .f1-folder-hint {
+    left: 4px;
+    bottom: 0;
+    font-size: .65rem;
+    color: var(--muted);
+    opacity: .85;
+}
+
+.console-grid .f1-card .f1-folder-details,
+.console-grid .f1-card.folder-open .f1-folder-details {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    opacity: 0;
+}
+
+.console-grid .console-intro #wakatimeHeading {
+    display: block;
+    max-width: calc(100% - 10px);
+    overflow: visible;
+    padding: 3px 6px 5px 0;
+    line-height: 1.25 !important;
+    word-break: normal;
+    -webkit-line-clamp: unset;
+}
+
+html body .top-right-controls .theme-toggle-card,
+html body .top-right-controls .theme-toggle-pill {
+    border-radius: 999px !important;
+    box-sizing: border-box !important;
+    background-clip: padding-box;
+}
+
+html body .top-right-controls .theme-toggle-knob,
+html body .top-right-controls .theme-toggle-moon {
+    border-radius: 50% !important;
+}
+
+/* Folder motion: cards tuck behind the front, fan upward, then lift individually. */
+.console-grid .f1-card .f1-card-title {
+    top: auto;
+    bottom: 40px;
+    font-size: clamp(.98rem, 1.25vw, 1.15rem) !important;
+}
+
+.console-grid .f1-card .f1-folder-toggle {
+    inset: 8px 10px 8px;
+}
+
+.console-grid .f1-card .f1-folder {
+    height: 100%;
+    filter: drop-shadow(0 11px 16px rgba(0, 0, 0, .3));
+}
+
+.console-grid .f1-card .f1-folder-back {
+    inset: 28px 6px 0;
+}
+
+.console-grid .f1-card .f1-folder-sheet {
+    left: 17%;
+    bottom: 23%;
+    width: 66%;
+    height: 57%;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    overflow: visible;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .2);
+    transform-origin: bottom center;
+    transition: transform .48s cubic-bezier(.2, .8, .2, 1), box-shadow .48s ease;
+}
+
+.console-grid .f1-card .f1-folder-sheet-one {
+    background: linear-gradient(145deg, #2d8cff, #1153a5);
+    color: #fff;
+    transform: translateX(-12%) translateY(18%) rotate(-5deg);
+}
+
+.console-grid .f1-card .f1-folder-sheet-two {
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 70%, #f5f0ff), color-mix(in srgb, var(--accent) 55%, #773dd3));
+    color: var(--text);
+    transform: translateY(18%);
+}
+
+.console-grid .f1-card .f1-folder-sheet-three {
+    background: linear-gradient(145deg, #f8f8f5, #dedfe9);
+    color: #17171a;
+    transform: translateX(12%) translateY(18%) rotate(5deg);
+}
+
+.console-grid .f1-card .f1-folder-front {
+    z-index: 4;
+    height: 64%;
+    border-radius: 11px 11px 15px 15px;
+    background: linear-gradient(165deg, color-mix(in srgb, var(--accent) 65%, #9072ff), color-mix(in srgb, var(--accent) 42%, #4f36c0));
+    transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .5s ease;
+}
+
+.console-grid .f1-card .f1-folder-hint {
+    bottom: 7px;
+    left: 8px;
+    z-index: 6;
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-one {
+    transform: translate(-22%, -29%) rotate(-13deg);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-two {
+    transform: translateY(-42%) rotate(0);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-three {
+    transform: translate(22%, -29%) rotate(13deg);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-front {
+    transform: perspective(450px) rotateX(-17deg) translateY(6px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .console-grid .f1-card.folder-open .f1-folder-sheet-one:hover {
+        z-index: 7;
+        transform: translate(-22%, -50%) rotate(-9deg) scale(1.04);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, .3);
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-two:hover {
+        z-index: 7;
+        transform: translateY(-63%) scale(1.04);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, .3);
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-three:hover {
+        z-index: 7;
+        transform: translate(22%, -50%) rotate(9deg) scale(1.04);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, .3);
+    }
+}
+
+@media (max-width: 560px) {
+    .console-grid .f1-card .f1-card-title {
+        bottom: 42px;
+        font-size: 1.14rem !important;
+    }
+}
+
+/* Let the opened cards rise above neighbouring tiles without clipping their edges. */
+.console-grid .f1-card {
+    overflow: visible;
+}
+
+.console-grid .f1-card.folder-open {
+    z-index: 20;
+}
+
+.console-grid .f1-card .f1-folder-front {
+    border-color: color-mix(in srgb, var(--accent) 80%, var(--line));
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 20%, var(--panel)), color-mix(in srgb, var(--accent) 38%, var(--panel-2)));
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-one {
+    transform: translate(-25%, -65%) rotate(-13deg);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-two {
+    transform: translateY(-76%);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-three {
+    transform: translate(25%, -65%) rotate(13deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .console-grid .f1-card.folder-open .f1-folder-sheet-one:hover {
+        transform: translate(-25%, -88%) rotate(-9deg) scale(1.04);
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-two:hover {
+        transform: translateY(-98%) scale(1.04);
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-three:hover {
+        transform: translate(25%, -88%) rotate(9deg) scale(1.04);
+    }
+}
+
+/* F1 data cards become actionable only while the folder is open. */
+.console-grid .f1-card .f1-folder-sheet {
+    cursor: pointer;
+    pointer-events: none;
+    text-align: left;
+    font-family: inherit;
+}
+
+.console-grid .f1-card .f1-folder-sheet-two {
+    color: #17171a;
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet {
+    pointer-events: auto;
+}
+
+.console-grid .f1-card .f1-folder-front {
+    cursor: pointer;
+}
+
+.console-grid .f1-card .f1-folder-front:focus-visible,
+.console-grid .f1-card .f1-folder-sheet:focus-visible {
+    outline: 3px solid var(--text);
+    outline-offset: 3px;
+    z-index: 8;
+}
+
+.console-grid .f1-card .f1-folder-hint {
+    pointer-events: none;
+}
+
+body.f1-dialog-open {
+    overflow: hidden;
+}
+
+.f1-dialog {
+    width: min(700px, calc(100% - 32px));
+    max-width: none;
+    max-height: min(780px, calc(100dvh - 32px));
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    border: 1px solid var(--line-strong);
+    border-radius: 22px;
+    color: var(--text);
+    background: var(--panel);
+    box-shadow: var(--shadow);
+}
+
+.f1-dialog::backdrop {
+    background: rgba(0, 0, 0, .7);
+    backdrop-filter: blur(8px);
+}
+
+.f1-dialog-shell {
+    position: relative;
+    padding: clamp(22px, 4vw, 36px);
+}
+
+.f1-dialog-close {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--text);
+    background: var(--panel-2);
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.f1-dialog-kicker {
+    margin: 0 44px 8px 0;
+    color: var(--accent);
+    font-size: .7rem;
+    font-weight: 850;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.f1-dialog h2 {
+    margin: 0 44px 18px 0;
+    font-size: clamp(1.55rem, 4vw, 2.2rem);
+    line-height: 1.1;
+}
+
+.f1-dialog-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.f1-dialog-nav button,
+.f1-retry {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    background: var(--panel-2);
+    cursor: pointer;
+    font-size: .78rem;
+    font-weight: 750;
+}
+
+.f1-dialog-nav button[aria-pressed="true"] {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 18%, var(--panel-2));
+}
+
+.f1-dialog button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.f1-data-list {
+    display: grid;
+    gap: 10px;
+}
+
+.f1-data-card {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--panel-2);
+}
+
+.f1-data-eyebrow,
+.f1-data-intro {
+    margin: 0 0 7px;
+    color: var(--muted);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.f1-data-title {
+    margin: 0 0 5px;
+    font-size: 1.05rem;
+    line-height: 1.25;
+}
+
+.f1-data-detail,
+.f1-data-note,
+.f1-message,
+.f1-dialog-updated,
+.f1-dialog-source {
+    margin: 0;
+    color: var(--muted);
+    font-size: .82rem;
+    line-height: 1.45;
+}
+
+.f1-data-value {
+    margin: 9px 0 0;
+    color: var(--accent);
+    font-size: .86rem;
+    font-weight: 800;
+}
+
+.f1-form-results,
+.f1-stop-results {
+    display: grid;
+    gap: 6px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.f1-form-result,
+.f1-stop-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .82rem;
+}
+
+.f1-result-position {
+    min-width: 32px;
+    color: var(--accent);
+}
+
+.f1-result-race {
+    color: var(--muted);
+}
+
+.f1-stop-result {
+    justify-content: space-between;
+}
+
+.f1-data-note {
+    margin-top: 12px;
+    font-size: .74rem;
+}
+
+.f1-dialog-updated,
+.f1-dialog-source {
+    margin-top: 14px;
+    font-size: .72rem;
+}
+
+.f1-dialog-source a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.f1-retry {
+    margin-top: 12px;
+}
+
+/* Keep the folder title readable and the three actions visible as they fan out. */
+.console-grid .f1-card .f1-folder-front img {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    left: auto;
+    width: 72px;
+    height: 32px;
+}
+
+.console-grid .f1-card.folder-open .f1-folder-front {
+    transform: translateY(4px) scaleY(.96);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-one {
+    transform: translate(-43%, -65%) rotate(-13deg);
+}
+
+.console-grid .f1-card.folder-open .f1-folder-sheet-three {
+    transform: translate(43%, -65%) rotate(13deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .console-grid .f1-card.folder-open .f1-folder-sheet-one:hover {
+        transform: translate(-43%, -88%) rotate(-9deg) scale(1.04);
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-three:hover {
+        transform: translate(43%, -88%) rotate(9deg) scale(1.04);
+    }
+}
+
+@media (max-width: 560px) {
+    .console-grid .f1-card .f1-folder-sheet {
+        left: 21%;
+        width: 58%;
+        height: 52%;
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-one {
+        transform: translate(-38%, -65%) rotate(-10deg);
+    }
+
+    .console-grid .f1-card.folder-open .f1-folder-sheet-three {
+        transform: translate(38%, -65%) rotate(10deg);
+    }
+}
+
+@media (min-width: 981px) {
+    html body .top-right-controls,
+    html body .top-right-controls .theme-toggle-card,
+    html body .top-right-controls .language-trigger {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    html body .top-right-controls {
+        transition: opacity .2s ease, transform .2s ease !important;
+    }
+
+    html body.mobile-controls-dim .top-right-controls {
+        filter: none !important;
+    }
+}
