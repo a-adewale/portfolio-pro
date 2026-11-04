@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="f1-enhancements.css">
     <link rel="stylesheet" href="portfolio-polish.css">
     <link rel="stylesheet" href="resume-sections.css">
+    <link rel="stylesheet" href="reference-resume.css">
 </head>
 <body>
     <a href="#intro" class="mobile-brand"><span>Adewale</span><strong>ADEOGUN</strong></a>
@@ -294,7 +295,7 @@
                 <article class="about-statement">
                     <div class="about-profile">
                         <span class="about-mark" aria-hidden="true">A<span>/</span>A</span>
-                        <div class="about-profile-info"><span>OPERATOR <strong>Adewale Adeogun</strong></span><span>ROLE <strong>Software Engineer</strong></span><span>BASE <strong>Lagos, Nigeria</strong></span></div>
+                        <div class="about-profile-info"><span>OPERATOR <strong>Adewale Adeogun</strong></span><span>ROLE <strong>Software Engineer</strong></span><span>BASE <strong>Lagos, Nigeria</strong></span><span>STATUS <strong class="profile-status">Open to opportunities</strong></span></div>
                     </div>
                     <p>Engineering useful systems for the work that happens after launch.</p>
                     <div class="about-disciplines" aria-label="Engineering disciplines">
@@ -331,6 +332,7 @@
                 <article class="timeline-item experience-card tilt-card">
                     <div class="experience-rail"><strong>01</strong><span></span></div>
                     <div class="experience-body">
+                    <div class="commit-bar"><span>01 / WORK</span><strong>HEAD → senior-rpa</strong><small>Deskstones Limited</small></div>
                     <div class="experience-topline"><div class="timeline-meta">Deskstones Limited · Leeds, UK · Oct 2023–present</div><div class="experience-logos" aria-label="Tools"><img src="images/uipath.svg" alt="UiPath"><img src="images/python.svg" alt="Python"><img src="images/js.svg" alt="JavaScript"></div></div>
                     <h3>Senior RPA Developer</h3>
                     <p>Promoted from RPA Developer in 2025. I engineer and support unattended healthcare and enterprise workflows using UiPath, Python, JavaScript, VB.NET, REST APIs, Selenium, and Orchestrator.</p>
@@ -342,6 +344,7 @@
                 <article class="timeline-item experience-card tilt-card">
                     <div class="experience-rail"><strong>02</strong><span></span></div>
                     <div class="experience-body">
+                    <div class="commit-bar"><span>02 / WORK</span><strong>HEAD → engineer</strong><small>TotalEnergies E&amp;P</small></div>
                     <div class="experience-topline"><div class="timeline-meta">TotalEnergies E&amp;P Limited · Lagos, Nigeria · Jun 2022–Oct 2023</div><div class="experience-logos" aria-label="Tools"><img src="images/python.svg" alt="Python"><img src="images/database.svg" alt="Data systems"><img src="images/gear.svg" alt="Automation"></div></div>
                     <h3>Software Engineer</h3>
                     <p>Built automation and data-processing tools for subsea operations, bringing sensor inspections, maintenance logs, and third-party reports into tested workflows for engineers and analysts.</p>
@@ -428,6 +431,7 @@
 
             </div>
             </div>
+            <a class="all-projects-link" href="https://github.com/a-adewale" target="_blank" rel="noopener noreferrer">View my GitHub projects <span aria-hidden="true">↗</span></a>
         </section>
 
         <section class="skills-section section" id="skills">
@@ -435,6 +439,14 @@
                 <span class="section-command" aria-hidden="true">$ cat skills.json</span>
                 <p class="eyebrow">Stack / Working tools</p>
                 <h2>Tools I build with.</h2>
+            </div>
+
+            <div class="skills-universe" id="skillsUniverse" aria-label="Interactive globe of engineering skills">
+                <div class="skills-globe" id="skillsGlobe" role="img" aria-label="Rotating globe showing Python, JavaScript, FastAPI, SQL, UiPath, .NET, Power BI, C++, AWS, and Azure. Drag to rotate.">
+                    <canvas class="skills-globe-canvas" id="skillsGlobeCanvas" aria-hidden="true"></canvas>
+                    <div class="skills-globe-nodes" id="skillsGlobeNodes" aria-hidden="true"></div>
+                </div>
+                <p class="skills-globe-hint">Drag to explore the stack <span aria-hidden="true">↔</span></p>
             </div>
 
             <div class="stack-grid">
@@ -547,6 +559,7 @@
     </dialog>
 
     <script src="script.js"></script>
+    <script src="skills-globe.js" defer></script>
     <script src="f1-lab.js"></script>
     <script src="f1-latest.js"></script>
     <script async src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
