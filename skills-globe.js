@@ -13,7 +13,7 @@
         { name: 'UiPath', image: 'images/uipath.svg' },
         { name: '.NET', image: 'images/skills/icons8-.net-framework-100.png' },
         { name: 'Power BI', image: 'images/powerbi.svg' },
-        { name: 'C++', glyph: 'C++' },
+        { name: 'C++', image: 'images/skills/cpp.png' },
         { name: 'AWS', image: 'images/skills/icons8-aws-logo-96.png' },
         { name: 'Azure', image: 'images/skills/azure.png' },
         { name: 'HTML5', image: 'images/skills/text.png' },
@@ -23,7 +23,7 @@
         { name: 'SQLite', image: 'images/skills/icons8-sqlite-100.png' },
         { name: 'REST APIs', image: 'images/skills/icons8-rest-api-100.png' },
         { name: 'MongoDB', image: 'images/skills/MongoDB.png' },
-        { name: 'Express', image: 'images/skills/icons8-express-js-100.png' },
+        { name: 'Express.js', image: 'images/skills/icons8-express-js-100.png' },
         { name: 'Flask', image: 'images/skills/icons8-flask-100.png' },
         { name: 'Next.js', image: 'images/skills/icons8-next.js-100.png' },
         { name: 'UE5', image: 'images/ue5.svg' }

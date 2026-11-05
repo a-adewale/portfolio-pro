@@ -198,11 +198,11 @@
 #skills .globe-skill.is-front:hover img { transform: scale(1.2); filter: drop-shadow(0 0 8px var(--accent)); }
 #skills .globe-skill img { width: 37px; height: 37px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(0,0,0,.45)); }
 #skills .globe-skill img { transition: transform .2s ease, filter .2s ease; }
-#skills .globe-skill[data-skill="Express"] img,
+#skills .globe-skill[data-skill="Express.js"] img,
 #skills .globe-skill[data-skill="Next.js"] img,
 #skills .globe-skill[data-skill="SQL"] img,
 #skills .globe-skill[data-skill="SQLite"] img { filter: invert(1) drop-shadow(0 0 2px rgba(255,255,255,.5)); }
-[data-theme="white"] #skills .globe-skill[data-skill="Express"] img,
+[data-theme="white"] #skills .globe-skill[data-skill="Express.js"] img,
 [data-theme="white"] #skills .globe-skill[data-skill="Next.js"] img,
 [data-theme="white"] #skills .globe-skill[data-skill="SQL"] img,
 [data-theme="white"] #skills .globe-skill[data-skill="SQLite"] img { filter: none; }
@@ -250,14 +250,32 @@
     #skills .skills-globe { width: min(530px, 88vw); }
 }
 
-/* The globe sits on the page background, without a second panel. */
+/* Give the globe a quiet surface so its mesh remains legible in both themes. */
 #skills .skills-universe {
-    border: 0;
-    border-radius: 0;
-    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--work-line));
+    border-radius: 20px;
+    background: radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--accent) 10%, var(--panel-2)) 0%, var(--panel) 68%);
     overflow: visible;
 }
-#skills .skills-universe::before { left: 0; }
+#skills .skills-universe::before { left: 20px; }
+
+.sidebar-footer .resume-download {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    align-self: center;
+    place-items: center;
+}
+.sidebar-footer .resume-download .resume-icon {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
 
 /* Metrics use the full width of each experience card. */
 #experience .experience-impact {
@@ -376,4 +394,12 @@
     #experience .experience-impact > span { min-height: 70px; flex-direction: column; }
     #contact .clock-card { min-height: 0; }
     .site-build-footer { padding-inline: 4px; }
+    #contact .contact-code-body { color: var(--text); font-size: .71rem; }
+    #contact .contact-code-body strong,
+    #contact .contact-code-body a { color: var(--text); }
+}
+
+@media (min-width: 981px) and (max-height: 760px) {
+    .sidebar-footer .resume-download { width: 38px; height: 38px; }
+    .sidebar-footer .resume-download .resume-icon { width: 19px; height: 19px; }
 }
