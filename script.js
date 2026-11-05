@@ -343,12 +343,18 @@ document.querySelectorAll('.project-filter button').forEach(button => {
     button.addEventListener('click', () => {
         const filter = button.dataset.filter;
 
-        document.querySelectorAll('.project-filter button').forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.project-filter button').forEach(item => {
+            item.classList.remove('active');
+            item.setAttribute('aria-pressed', 'false');
+        });
         button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
 
         document.querySelectorAll('.project-card').forEach(card => {
-            const categories = card.dataset.category || '';
-            card.classList.toggle('hidden', filter !== 'all' && !categories.includes(filter));
+            const categories = (card.dataset.category || '').split(/\s+/);
+            const shouldHide = filter !== 'all' && !categories.includes(filter);
+            card.classList.toggle('hidden', shouldHide);
+            card.hidden = shouldHide;
         });
     });
 });
@@ -394,20 +400,32 @@ document.querySelectorAll([
     control.addEventListener('blur', release);
 });
 
-function setClock(timeId, dateId, timeZone, label) {
-    const now = new Date();
+function setClock(timeId, dateId, timeZone, label, now) {
 
     const timeElement = document.getElementById(timeId);
     const dateElement = document.getElementById(dateId);
 
     if (!timeElement || !dateElement) return;
 
-    timeElement.textContent = new Intl.DateTimeFormat('en-GB', {
+    const timeFormatter = new Intl.DateTimeFormat('en-GB', {
         timeZone,
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit'
-    }).format(now);
+        second: '2-digit',
+        hourCycle: 'h23'
+    });
+    const timeParts = Object.fromEntries(timeFormatter.formatToParts(now).map(part => [part.type, part.value]));
+    const hour = Number(timeParts.hour);
+    const minute = Number(timeParts.minute);
+    const second = Number(timeParts.second);
+    timeElement.textContent = timeFormatter.format(now);
+
+    const clockFace = timeElement.closest('.clock-card')?.querySelector('.analog-clock');
+    if (clockFace) {
+        clockFace.querySelector('.clock-hour').style.setProperty('--angle', `${(hour % 12 + minute / 60 + second / 3600) * 30}deg`);
+        clockFace.querySelector('.clock-minute').style.setProperty('--angle', `${(minute + second / 60) * 6}deg`);
+        clockFace.querySelector('.clock-second').style.setProperty('--angle', `${second * 6}deg`);
+    }
 
     dateElement.textContent = label + ' · ' + new Intl.DateTimeFormat('en-GB', {
         timeZone,
@@ -418,11 +436,10 @@ function setClock(timeId, dateId, timeZone, label) {
 }
 
 function updateClocks() {
-    const localZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Africa/Lagos';
-
-    setClock('localTime', 'localDate', localZone, localZone);
-    setClock('ukTime', 'ukDate', 'Europe/London', 'United Kingdom');
-    setClock('usTime', 'usDate', 'America/New_York', 'United States');
+    const now = new Date();
+    setClock('localTime', 'localDate', 'Africa/Lagos', 'Lagos', now);
+    setClock('ukTime', 'ukDate', 'Europe/London', 'London', now);
+    setClock('usTime', 'usDate', 'America/New_York', 'New York', now);
 }
 
 updateClocks();

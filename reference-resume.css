@@ -249,3 +249,131 @@
     #skills .skills-universe { min-height: 565px; }
     #skills .skills-globe { width: min(530px, 88vw); }
 }
+
+/* The globe sits on the page background, without a second panel. */
+#skills .skills-universe {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+}
+#skills .skills-universe::before { left: 0; }
+
+/* Metrics use the full width of each experience card. */
+#experience .experience-impact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+    gap: 9px;
+    border: 0;
+    padding: 0;
+}
+#experience .experience-impact > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 78px;
+    padding: 10px 9px;
+    text-align: center;
+    line-height: 1.35;
+}
+#experience .experience-impact strong { font-size: 1.22rem; }
+
+#projects .project-card.hidden,
+#projects .project-card[hidden] { display: none !important; }
+
+/* Three compact, timezone-aware analog clocks. */
+#contact .clock-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    min-width: 0;
+    padding: 15px !important;
+    border: 1px solid var(--work-line);
+    background: var(--work-surface);
+}
+#contact .clock-card > span:first-child {
+    align-self: flex-start;
+    color: var(--accent);
+    font: 700 .72rem/1.2 var(--resume-mono);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+}
+#contact .analog-clock {
+    position: relative;
+    width: min(132px, 100%);
+    aspect-ratio: 1;
+    margin: 8px auto 2px;
+    border: 2px solid var(--work-line);
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--text) 45%, transparent) 0deg 1deg, transparent 1deg 30deg), var(--panel-2);
+    box-shadow: inset 0 0 0 10px var(--panel-2);
+}
+#contact .analog-clock::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    background: var(--panel-2);
+}
+#contact .analog-clock > i {
+    position: absolute;
+    z-index: 2;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 999px;
+    transform-origin: 50% 100%;
+    transform: translateX(-50%) rotate(var(--angle, 0deg));
+}
+#contact .analog-clock .clock-hour { width: 5px; height: 34px; background: var(--text); }
+#contact .analog-clock .clock-minute { width: 3px; height: 48px; background: var(--soft); }
+#contact .analog-clock .clock-second { width: 2px; height: 53px; background: var(--accent); }
+#contact .analog-clock > b {
+    position: absolute;
+    z-index: 3;
+    top: 50%; left: 50%;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translate(-50%, -50%);
+}
+#contact .analog-clock .clock-number {
+    position: absolute;
+    z-index: 1;
+    color: var(--muted);
+    font: 700 .64rem/1 var(--resume-mono);
+}
+#contact .analog-clock .n12 { top: 13px; left: 50%; transform: translateX(-50%); }
+#contact .analog-clock .n3 { right: 13px; top: 50%; transform: translateY(-50%); }
+#contact .analog-clock .n6 { bottom: 13px; left: 50%; transform: translateX(-50%); }
+#contact .analog-clock .n9 { left: 13px; top: 50%; transform: translateY(-50%); }
+#contact .clock-card strong { margin: 0; font-size: 1.13rem; font-variant-numeric: tabular-nums; }
+#contact .clock-card small { text-align: center; font-size: .68rem; }
+
+.site-build-footer {
+    padding: 44px 0 24px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+}
+.site-build-footer .build-footer-title {
+    margin: 0;
+    color: var(--text);
+    font: 800 clamp(1rem, 2vw, 1.4rem)/1.3 var(--resume-mono, monospace);
+}
+.site-build-footer .build-footer-title > span:first-child { color: var(--accent); }
+.site-build-footer .build-footer-divider { color: var(--muted); }
+.site-build-footer .build-footer-intro { margin: 12px 0 18px; color: var(--muted); font: 600 .8rem/1.5 var(--resume-mono, monospace); }
+.site-build-footer .backend-notes { text-align: left; }
+.site-build-footer .backend-notes p { border-color: var(--line); background: var(--panel); }
+.site-build-footer .backend-notes strong { color: var(--accent); }
+.site-build-footer > small { display: block; margin-top: 18px; color: var(--muted); font: 600 .72rem/1.5 var(--resume-mono, monospace); }
+.site-build-footer > small a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 560px) {
+    #experience .experience-impact { grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); }
+    #experience .experience-impact > span { min-height: 70px; flex-direction: column; }
+    #contact .clock-card { min-height: 0; }
+    .site-build-footer { padding-inline: 4px; }
+}
