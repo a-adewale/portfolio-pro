@@ -131,12 +131,12 @@
         if (!width) return;
         context.clearRect(0, 0, width, width);
         const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#ff7f87';
-        context.lineWidth = .9;
+        context.lineWidth = 1.2;
         context.strokeStyle = accent;
         for (const [a, b] of meshEdges) {
             const first = project(...vertices[a]);
             const second = project(...vertices[b]);
-            context.globalAlpha = (first.z + second.z) / 2 < 0 ? .09 : .27;
+            context.globalAlpha = (first.z + second.z) / 2 < 0 ? .18 : .58;
             context.beginPath();
             context.moveTo(first.x, first.y);
             context.lineTo(second.x, second.y);
@@ -149,7 +149,7 @@
             point.element.style.transform = `translate(${projected.x - width / 2}px, ${projected.y - width / 2}px) translate(-50%, -50%) scale(${scale})`;
             const front = projected.z > .08;
             point.element.classList.toggle('is-front', front);
-            point.element.style.opacity = String(front ? .7 + projected.z * .3 : .1);
+            point.element.style.opacity = String(front ? .88 + projected.z * .12 : .18);
             point.element.style.zIndex = String(Math.round((projected.z + 1) * 10));
         }
     }

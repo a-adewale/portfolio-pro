@@ -258,6 +258,7 @@
     overflow: visible;
 }
 #skills .skills-universe::before { left: 20px; }
+#skills .globe-skill.is-front { text-shadow: 0 1px 8px var(--panel); }
 
 .sidebar-footer .resume-download {
     flex: 0 0 auto;
