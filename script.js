@@ -400,6 +400,15 @@ document.querySelectorAll([
     control.addEventListener('blur', release);
 });
 
+document.querySelectorAll('.analog-clock').forEach(clock => {
+    for (let minute = 0; minute < 60; minute++) {
+        const tick = document.createElement('span');
+        tick.className = minute % 5 === 0 ? 'clock-tick major' : 'clock-tick';
+        tick.style.setProperty('--tick-angle', `${minute * 6}deg`);
+        clock.append(tick);
+    }
+});
+
 function setClock(timeId, dateId, timeZone, label, now) {
 
     const timeElement = document.getElementById(timeId);

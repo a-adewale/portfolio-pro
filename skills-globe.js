@@ -8,6 +8,7 @@
     const skills = [
         { name: 'Python', image: 'images/python.svg' },
         { name: 'JavaScript', image: 'images/js.svg' },
+        { name: 'Node.js', image: 'images/skills/nodejs.png' },
         { name: 'FastAPI', image: 'images/skills/FastAPI.png' },
         { name: 'SQL', image: 'images/skills/icons8-sql-100.png' },
         { name: 'UiPath', image: 'images/uipath.svg' },
