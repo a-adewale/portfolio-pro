@@ -11,7 +11,7 @@
         item.append(node('p', 'f1-live-label', label), node('strong', 'f1-live-value', value), node('p', 'f1-live-detail', detail));
         return item;
     }
-
+'building this was actually fun,annoying but fun'
     async function load(grid) {
         try {
             const response = await fetch('/api/f1?view=latest', { headers: { Accept: 'application/json' } });

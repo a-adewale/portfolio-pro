@@ -12,6 +12,8 @@ const enterSite = document.getElementById('enterSite');
 const matrixFinal = document.getElementById('matrixFinal');
 const buildLabStage = document.getElementById('buildLabStage');
 
+
+'this is just a lot of default things that might be changed'
 function typeInto(element, text, speed = 76) {
     return new Promise(resolve => {
         let index = 0;
