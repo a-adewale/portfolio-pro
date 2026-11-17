@@ -1,6 +1,6 @@
 ﻿# Adewale Adeogun — Software Engineering Portfolio
 
-[Live site](https://adewalesportfolio.vercel.app/) · [Resume](Adewale_Adeogun_Software_Engineer.pdf)
+[Live site](https://adewaleadeogun.is-a.dev/) · [Resume](Adewale_Adeogun_Software_Engineer.pdf)
 
 A portfolio covering software engineering, automation, data work, and interactive F1 analysis. The site is static HTML, CSS, and JavaScript with Vercel serverless APIs for Spotify, WakaTime, and F1 data.
 
